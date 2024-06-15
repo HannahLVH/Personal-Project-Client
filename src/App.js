@@ -6,6 +6,7 @@ import CreatePlan from "./components/CreatePlan";
 import Index from "./components/Index";
 import Login from "./components/Login";
 import Plans from "./components/Plans";
+import Profile from "./components/Profile";
 import ProfileSettings from "./components/ProfileSettings";
 import Roster from "./components/Roster";
 import Footer from "./shared/Footer"
@@ -27,6 +28,7 @@ function App() {
         <Index/>
         <Login user={user} setUser={setUser}/>
         <Plans/>
+        <Profile/>
         <ProfileSettings/>
         <Roster/>
         <Footer/>

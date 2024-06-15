@@ -1,9 +1,11 @@
 const userData = [
   {
+    id: "1",
     firstName: "Hannah",
     lastName: "Lopez",
     username: "hannah-lopez",
     role: "Teacher",
+    about: "I'm a violin teacher with 8 years of experience teaching students of all ages and levels."
   },
   {
     firstName: "Matt",
