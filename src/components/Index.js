@@ -24,7 +24,7 @@ const Index = () => {
                 </div>
                 <div className="planner-sample">
                     <h3>Planner Sample:</h3>
-                    <img src="./public/images/feature-examples/feature-example-1.png" className="feature-example-img"/>
+                    <img src="./images/feature-examples/feature-example-1.png" className="feature-example-img" alt="Example of Practice Plan" style={{width: "600px"}}/>
                 </div>
             </section>
             <br/>

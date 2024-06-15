@@ -6,7 +6,7 @@ const Header = () => {
         <div className="nav-section">
             <nav className="nav-container">
                 <span className="nav-logo-background">
-                <a href="index.html"><img src="./public/images/Practice-Time-Logo.png" alt="practice time logo: a black letter 'p' over a black letter 't'" className="nav-logo-img"/></a>
+                <a href="index.html"><img src="./images/Practice-Time-Logo.png" alt="practice time logo: a black letter 'p' over a black letter 't'" className="nav-logo-img" style={{width: "180px"}}/></a>
                 </span>
                 <div className="nav-menu-container">
                     <ul className="nav-menu-list nav-link-styling">
@@ -16,7 +16,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="hamburger-menu">
-                    <i className="fa-solid fa-bars" style="color: #ffffff;"></i>  
+                    <i className="fa-solid fa-bars" style={{color: "#ffffff"}}></i>  
                 </div>
             </nav>
         </div>
