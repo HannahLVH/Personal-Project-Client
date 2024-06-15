@@ -1,4 +1,5 @@
 import React from "react";
+import planData from "../data/planData"
 
 const Plans = () => {
     return (
@@ -21,9 +22,10 @@ const Plans = () => {
                                 </tr>
                             </thead>
                             <tbody>
+                                {planData.map((plan) =>
                                 <tr>
-                                    <td>_/_/___</td>
-                                    <td>Teacher</td>
+                                    <td>{plan.createdOn}</td>
+                                    <td>{plan.createdBy.username}</td>
                                     <td>
                                         <select className="manage-pp-select" name="manage-pp-options" id="manage-pp-options">
                                             <option selected>Select an option:</option>
@@ -36,7 +38,8 @@ const Plans = () => {
                                         </select>
                                     </td>
                                 </tr>
-                                <tr>
+                                )}
+                                {/* <tr>
                                     <td>_/_/___</td>
                                     <td>Teacher</td>
                                     <td>
@@ -200,7 +203,7 @@ const Plans = () => {
                                             <option value="archive-value">Archive</option>
                                         </select>
                                     </td>
-                                </tr>
+                                </tr> */}
                             </tbody>
                         </table>
                     </div>
