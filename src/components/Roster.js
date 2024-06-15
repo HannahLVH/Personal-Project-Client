@@ -23,7 +23,7 @@ const Roster = () => {
                         </thead>
                         <tbody>
                             {userData.map((user) => 
-                            <tr>
+                            <tr key={user.id}>
                                 <td>{user.firstName} {user.lastName}</td>
                                 {/* <td>_/_/___</td> */}
                                 <td>

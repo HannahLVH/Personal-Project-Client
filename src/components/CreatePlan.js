@@ -1,12 +1,18 @@
 import React, {useState} from "react";
 
 const CreatePlan = () => {
-    const [createPlan, setCreatePlan] = useState({});
+    const [createPlan, setCreatePlan] = useState({
+        // activity: "",
+        // practiceNotes: ""
+    });
+
+    const handleInputChange = (e) => {
+        const {name, value} = e.target;
+        setCreatePlan((prevCreatePlan) => ({...prevCreatePlan, [name]: value}))
+    };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const {name, value} = e.target;
-        setCreatePlan((prevCreatePlan) => ({...prevCreatePlan, [name]: {value}}))
         console.log("Method running successfully")
     }
 
@@ -27,36 +33,14 @@ const CreatePlan = () => {
                                 <div>
                                     <div className="pp-section">
                                         <div className="pp-label-input-container">
-                                            <label className="pp-tools">Activity #1:</label>
-                                            <textarea className="pp-textarea" id="pp-activity-text" name="pp-activity-text" placeholder="Example: Warm ups / Scales"></textarea>
+                                            <label className="pp-tools" htmlFor="activity">Activity #1:</label>
+                                            <textarea className="pp-textarea" id="activity" name="activity" placeholder="Example: Warm ups / Scales" value={createPlan.activity} onChange={handleInputChange} required></textarea>
                                         </div>  
                                         <div className="pp-label-input-container">
-                                            <label className="pp-notes">Annotations:</label>
-                                            <textarea className="pp-textarea" id="pp-annotations-text" name="pp-annotations-text" placeholder="What should be the focus of this activity?" required></textarea>
+                                            <label className="pp-notes" htmlFor="practiceNotes">Practice Notes:</label>
+                                            <textarea className="pp-textarea" id="practiceNotes" name="practiceNotes" placeholder="What should be the focus of this activity?" value={createPlan.practiceNotes} onChange={handleInputChange} required></textarea>
                                         </div>  
                                     </div>
-                                </div>
-                                <div>
-                                    <div className="pp-section">
-                                        <div className="pp-label-input-container">
-                                            <label className="pp-tools">Activity #2:</label>
-                                            <textarea className="pp-textarea" id="pp-activity-text" name="pp-activity-text" placeholder="Example: Exercises / Etudes" required></textarea>
-                                        </div>  
-                                        <div className="pp-label-input-container">
-                                            <label className="pp-notes">Annotations:</label>
-                                            <textarea className="pp-textarea" id="pp-annotations-text" name="pp-annotations-text" placeholder="What should be the focus of this activity?" required></textarea>
-                                        </div>  
-                                    </div>
-                                </div>
-                                <div className="pp-section">
-                                    <div className="pp-label-input-container">
-                                        <label className="pp-tools">Activity #3:</label>
-                                        <textarea className="pp-textarea" id="pp-activity-text" name="pp-activity-text" placeholder="Example: Warm ups / Scales" required></textarea>
-                                    </div>  
-                                    <div className="pp-label-input-container">
-                                        <label className="pp-notes">Annotations:</label>
-                                        <textarea className="pp-textarea" id="pp-annotations-text" name="pp-annotations-text" placeholder="What should be the focus of this activity?" required></textarea>
-                                    </div>  
                                 </div>
                                 <div className="pp-buttons">
                                     <div className="add-section-button">
