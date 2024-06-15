@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import planData from "../data/planData";
 
 const Plans = () => {
+    const [plans, setPlans] = useState([]);
+
+    useEffect (() => {
+        setPlans(planData);
+    }, [])
+
     return (
       <main>
         <div className="content-section">
@@ -22,8 +28,8 @@ const Plans = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {planData.map((plan) =>
-                                <tr>
+                                {plans.map((plan) =>
+                                <tr key={plan.id}>
                                     <td>{plan.createdOn}</td>
                                     <td>{plan.createdBy.username}</td>
                                     <td>

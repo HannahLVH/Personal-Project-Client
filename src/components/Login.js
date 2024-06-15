@@ -14,11 +14,11 @@ const Login = () => {
                             <form action="#">
                                 <div className="form-fields">
                                     <span className="label-input-container">
-                                        <label for="username">Email Address: </label>
+                                        <label htmlFor="username">Email Address: </label>
                                         <input type="username" name="username" id="username" placeholder="Email"/>
                                     </span>
                                     <span className="label-input-container">
-                                        <label for="password">Password: </label>
+                                        <label htmlFor="password">Password: </label>
                                         <input type="password" name="password" id="password" placeholder="Password" />
                                     </span>
                                     <span className="enter-button">

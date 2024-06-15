@@ -1,5 +1,4 @@
 import React from "react";
-import studentData from "../data/userData";
 import userData from "../data/userData";
 
 const Roster = () => {

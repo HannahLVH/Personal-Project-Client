@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Header from "./shared/Header";
 import AccountSettings from "./components/AccountSettings";
 import CreateAccount from "./components/CreateAccount";
@@ -12,14 +12,20 @@ import Footer from "./shared/Footer"
 
 
 function App() {
+  const [user, setUser] = useState({})
+
+  useEffect (() => {
+    localStorage.getItem("user")
+  }, [user])
+
   return (
     <div className="App">
-        <Header/>
+        <Header user={user} setUser={setUser}/>
         <AccountSettings/>
-        <CreateAccount/>
+        <CreateAccount user={user} setUser={setUser} />
         <CreatePlan/>
         <Index/>
-        <Login/>
+        <Login user={user} setUser={setUser}/>
         <Plans/>
         <ProfileSettings/>
         <Roster/>

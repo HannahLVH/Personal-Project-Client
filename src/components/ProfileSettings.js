@@ -14,7 +14,7 @@ const ProfileSettings = () => {
                     <div className="profile-form-fields">
                         <form action="#">
                                 <div className="profile-pic-section-container">
-                                    <label for="profile-pic">Profile Picture:</label>
+                                    <label htmlFor="profile-pic">Profile Picture:</label>
                                         <div className="profile-pic-section">
                                             <div className="profile-pic-thumbnail-container">
                                                 <span className="profile-pic-thumbnail"></span>
@@ -23,14 +23,14 @@ const ProfileSettings = () => {
                                         </div>
                                 </div>
                             <div className="profile-form-section">
-                                <label for="username">Username:</label>
+                                <label htmlFor="username">Username:</label>
                                 <input type="username" name="username" id="username" placeholder="Username" />
                                 <div className="save-button">
                                 <button className="cambridge-button">EDIT</button>
                                 </div>
                             </div>
                             <div className="profile-form-section">
-                                <label for="about-me">About Me:</label>
+                                <label htmlFor="about-me">About Me:</label>
                                 <textarea type="about-me" name="about-me" id="about-me" placeholder="About me"></textarea>
                                 <span className="save-button">
                                     <button className="cambridge-button">EDIT</button>
