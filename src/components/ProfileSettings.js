@@ -1,5 +1,5 @@
 import React, {useEffect,useState } from "react";
-import userData from "../data/userData"
+import userData from "../data/userData";
 
 const ProfileSettings = () => {
     const id = "1";

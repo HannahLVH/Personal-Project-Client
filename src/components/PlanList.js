@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import planData from "../data/planData";
 
-const Plans = () => {
+const PlanList = () => {
     const [plans, setPlans] = useState([]);
 
     useEffect (() => {
@@ -56,4 +56,4 @@ const Plans = () => {
     )
   }
 
-export default Plans;
+export default PlanList;
