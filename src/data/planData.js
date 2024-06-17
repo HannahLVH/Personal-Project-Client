@@ -1,6 +1,6 @@
 const userPlans = [
     {
-        id: "1",
+        _id: "1",
         createdBy: {
             _id: "6648dba36cf94ff0c2d6ee85",
             username: "hannah-lopez", 
@@ -15,6 +15,7 @@ const userPlans = [
         practiceNotes: "Remember to leave finger 1 down on measures 3 and 5. Also, remember to retake bow on measures 4 and 6 during the rest (as you say “shh”). Watch out for repeated notes! Practice playing the song once and then repeat without stopping.",
     }, 
     {
+        _id: "66491c4688a50f36e072b84d",
         createdBy: {
             _id: "6648dba36cf94ff0c2d6ee85",
             username: "hannah-lopez", 
@@ -29,6 +30,7 @@ const userPlans = [
         practiceNotes: "Remember to leave finger 1 down on measures 3 and 5. Also, remember to retake bow on measures 4 and 6 during the rest (as you say “shh”). Watch out for repeated notes! Practice playing the song once and then repeat without stopping.",
     }, 
     {
+        _id: "66491c4688a50f36e072b84e",
         createdBy: {
             _id: "6648dba36cf94ff0c2d6ee85",
             username: "hannah-lopez", 
@@ -43,6 +45,7 @@ const userPlans = [
         practiceNotes: "Don't play too fast. Keep beat steady. Make sure to play in tune. Practice one measure at a time before moving on to the next.",
     }, 
     {
+        _id: "66491c4688a50f36e072b84f",
         createdBy: {
             _id: "6648dba36cf94ff0c2d6ee86",
             username: "matt-hughes", 
@@ -57,6 +60,7 @@ const userPlans = [
         practiceNotes: "Remember to leave finger 1 down on measures 3 and 5. Also, remember to retake bow on measures 4 and 6 during the rest (as you say “shh”). Watch out for repeated notes! Practice playing the song once and then repeat without stopping.",
     }, 
     {
+        _id: "66491c4688a50f36e072b850",
         createdBy: {
             _id: "6648dba36cf94ff0c2d6ee86",
             username: "matt-hughes", 
@@ -71,6 +75,7 @@ const userPlans = [
         practiceNotes: "Don't play too fast. Keep beat steady. Make sure to play in tune. Practice one measure at a time before moving on to the next.",
     },
     {
+        _id: "66491c4688a50f36e072b851",
         createdBy: {
             _id: "6648dba36cf94ff0c2d6ee86",
             username: "matt-hughes", 

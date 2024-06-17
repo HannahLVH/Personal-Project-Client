@@ -2,13 +2,13 @@ import React, {useEffect, useState} from "react";
 import planData from "../data/planData";
 
 const Plan = () => {
-    const id = "1";
+    const _id = "1";
     const [plan, setPlan] = useState({});
 
     useEffect(() => {
-        const findPlan = planData.find((plan) => plan.id === id);
+        const findPlan = planData.find((plan) => plan._id === _id);
         setPlan(findPlan);
-    }, [id])
+    }, [_id])
 
     console.log(plan)
 

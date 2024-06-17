@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import planData from "../data/planData";
 
 const EditPlan = () => {
-    const id = "1";
+    const _id = "1";
     const [editPlan, setEditPlan] = useState({})
 
     useEffect(() => {
-        const findPlan = planData.find((plan) => plan.id === id);
+        const findPlan = planData.find((plan) => plan._id === _id);
         setEditPlan(findPlan);
-    }, [id])
+    }, [_id])
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;

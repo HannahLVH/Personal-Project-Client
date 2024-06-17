@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Index/>}/>
           <Route path="/signup" element={<CreateAccount/>} user={user} setUser={setUser}/>
-          <Route path="/login/local" element={<Login/>} user={user} setUser={setUser}/>
+          <Route path="/login" element={<Login/>} user={user} setUser={setUser}/>
           <Route path="/account-settings" element={<AccountSettings/>}/>
           <Route path="/plans" element={<PlanList/>}/>
           <Route path="/plan" element={<Plan/>}/>
