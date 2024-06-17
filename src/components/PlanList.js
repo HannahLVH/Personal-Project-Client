@@ -33,8 +33,8 @@ const PlanList = () => {
                                     <td>{plan.createdOn}</td>
                                     <td>{plan.createdBy.username}</td>
                                     <td>
-                                        <select className="manage-pp-select" name="manage-pp-options" id="manage-pp-options">
-                                            <option selected>Select an option:</option>
+                                        <select className="manage-pp-select" name="manage-pp-options" id="manage-pp-options" defaultValue={"selected"}>
+                                            <option value="selected">Select an option:</option>
                                             <option value="completed-value">Completed</option>
                                             <option value="pending-value">Pending</option>
                                             <option value="assign-to-value">Assign to student</option>

@@ -17,7 +17,6 @@ const Roster = () => {
                         <thead>
                             <tr>
                                 <th>STUDENT NAME</th>
-                                {/* <th>DATE ADDED</th> */}
                                 <th>MANAGE STUDENT</th>
                             </tr>
                         </thead>
@@ -25,10 +24,9 @@ const Roster = () => {
                             {userData.map((user) => 
                             <tr key={user.id}>
                                 <td>{user.firstName} {user.lastName}</td>
-                                {/* <td>_/_/___</td> */}
                                 <td>
-                                    <select className="manage-pp-select" name="manage-pp-options" id="manage-pp-options">
-                                        <option selected>Select an option:</option>
+                                    <select className="manage-pp-select" name="manage-pp-options" id="manage-pp-options" defaultValue={"selected"}>
+                                        <option value="selected">Select an option:</option>
                                         <option value="view-profile-value">View Student Profile</option>
                                         <option value="view-plans-value">View Plans</option>
                                         <option value="create-new-pp-value">Create New Plan</option>
