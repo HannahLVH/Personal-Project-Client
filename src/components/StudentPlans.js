@@ -2,22 +2,23 @@ import React, {useState, useEffect} from "react";
 // import planData from "../data/planData";
 import {useParams} from "react-router-dom";
 
-const PlanList = () => {
+const StudentPlans = () => {
     const {userId} = useParams();
-    const [plans, setPlans] = useState([]);
+    const [studentPlans, setStudentPlans] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
 
     useEffect (() => {
         // setPlans(planData);
-        fetch(`http://localhost:8080/user/plans/${userId}`, {
+        fetch(`http://localhost:8080/user/student/${userId}`, {
             method: "GET",
         })
         .then((response) => response.json())
         .then((result) => {
+            
             if(result.statusCode ===200)
             {
-                // console.log(result)
-                setPlans(result.data)
+                console.log(result)
+                setStudentPlans(result.data)
             } else {
                 throw new Error(result.error.message)
             }
@@ -26,6 +27,8 @@ const PlanList = () => {
 }, [userId])
 
 console.log("Error:", errorMessage)
+console.log("Id:", userId)
+console.log(studentPlans)
 
     return (
       <main>
@@ -48,7 +51,7 @@ console.log("Error:", errorMessage)
                                 </tr>
                             </thead>
                             <tbody>
-                                {plans.map((plan) =>
+                                {studentPlans.map((plan) =>
                                 <tr key={plan.id}>
                                     
                                     <td>{plan.title}</td>
@@ -59,9 +62,9 @@ console.log("Error:", errorMessage)
                                             <option value="selected">Select an option:</option>
                                             <option value="completed-value">Completed</option>
                                             <option value="pending-value">Pending</option>
-                                            <option value="assign-to-value">Assign to student</option>
-                                            <option value="duplicate-value">Duplicate value</option>
-                                            <option value="edit-value">Edit</option>
+                                            {/* <option value="assign-to-value">Assign to student</option> */}
+                                            {/* <option value="duplicate-value">Duplicate value</option> */}
+                                            {/* <option value="edit-value">Edit</option> */}
                                             <option value="archive-value">Archive</option>
                                         </select>
                                     </td>
@@ -78,4 +81,4 @@ console.log("Error:", errorMessage)
     )
   }
 
-export default PlanList;
+export default StudentPlans;

@@ -2,11 +2,11 @@ import React, {useEffect,useState } from "react";
 import userData from "../data/userData";
 
 const ProfileSettings = () => {
-    const id = "1";
+    const id = "6648dba36cf94ff0c2d6ee85";
     const [user, setUser] = useState({})
 
     useEffect(() => {
-        const findUser = userData.find((user) => user.id === id);
+        const findUser = userData.find((user) => user._id === id);
         setUser(findUser);
     }, [id])
 
