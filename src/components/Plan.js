@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from "react";
 // import planData from "../data/planData";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Plan = () => {
-    // const _id = "1";
-    const {id} = useParams();
+    // const _planId = "1";
+    const navigate = useNavigate();
+    const {planId} = useParams();
     const [plan, setPlan] = useState({});
     const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
-        fetch(`http://localhost:8080/user/plan/${id}`, {
+        fetch(`http://localhost:8080/user/plan/${planId}`, {
             method: "GET",
         })
         .then((response) => response.json())
@@ -23,11 +24,12 @@ const Plan = () => {
             }
         })
         .catch((error) => setErrorMessage("Error", error))
-        console.log(errorMessage)
-    }, [id])
+        
+    }, [planId])
 
-    
-    console.log(id)
+    console.log(errorMessage)
+
+    console.log(planId)
     return (
         <main>
             <div className="content-section">
@@ -39,7 +41,7 @@ const Plan = () => {
                 </span>
                 <div className="new-pp-form-container">
                     <div className="new-pp-form-fields">
-                        <form action="#">
+                        {/* <form action="#"> */}
                                 <div>
                                     <div className="pp-section">
                                     <div className="pp-label-input-container">
@@ -58,10 +60,10 @@ const Plan = () => {
                                 </div>
                                 <div className="pp-buttons">            
                                     <div className="save-button">
-                                        <button className="cambridge-button">EDIT PLAN</button>
+                                        <button className="cambridge-button" onClick={() => navigate(`/edit-plan/${planId}`)}>EDIT PLAN</button>
                                     </div>
                                 </div>
-                        </form>
+                        {/* </form> */}
                     </div>
                 </div>
             </div>

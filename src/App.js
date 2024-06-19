@@ -35,8 +35,8 @@ function App() {
           <Route path="/account-settings" element={<AccountSettings/>}/>
           <Route path="/plans/:userId" element={<PlanList/>} />
           <Route path="/student/:userId" element={<StudentPlans/>} />
-          <Route path="/plan/:id" element={<Plan/>}/>
-          <Route path="/edit-plan/:id" element={<EditPlan/>}/>
+          <Route path="/plan/:planId" element={<Plan/>}/>
+          <Route path="/edit-plan/:planId" element={<EditPlan/>}/>
           <Route path="/create-plan" element={<CreatePlan/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/edit-profile" element={<ProfileSettings/>}/>

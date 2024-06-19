@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 // import planData from "../data/planData";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const EditPlan = () => {
-    // const _id = "1";
-    const {id} = useParams();
-    const [editPlan, setEditPlan] = useState({
-            title: "",
-            activity: "",
-            practiceNotes: "",
+    const navigate = useNavigate();
+    const {planId} = useParams();
+    const [plan, setPlan] = useState({
+        title: "",
+        activity: "",
+        practiceNotes: "",
     })
     const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
-        // const findPlan = planData.find((plan) => plan._id === _id);
-        // setEditPlan(findPlan);
-        fetch(`http://localhost:8080/user/plan/${id}`, {
+        // const findPlan = planData.find((plan) => plan._planId === _planId);
+        // setPlan(findPlan);
+        fetch(`http://localhost:8080/user/plan/${planId}`, {
             method: "GET",
             headers: {"Content-Type": "application/json"},
         })
@@ -24,17 +24,17 @@ const EditPlan = () => {
             if(result.statusCode === 200)
             {
                 console.log(result)
-                setEditPlan(result.data)
+                setPlan(result.data)
             } else {
                 throw new Error(result.error.message)
             }
         })
         .catch((error) => setErrorMessage("Error", error))
-    }, [id])
+    }, [planId])
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
-        setEditPlan((prevEditPlan) => ({...prevEditPlan, [name]: value}))
+        setPlan((prevEditPlan) => ({...prevEditPlan, [name]: value}))
     };
 
     const handleFormSubmit = (e) => {
@@ -45,9 +45,9 @@ const EditPlan = () => {
             practiceNotes: e.target.practiceNotes.value,    
         }
         
-        console.log("Method running successfully", editPlan);
+        console.log("Method running successfully", plan);
 
-        fetch(`http://localhost:8080/user/edit-plan/${id}`, {
+        fetch(`http://localhost:8080/user/edit-plan/${planId}`, {
             method: "PUT",
             headers: {"Content-Type": "application/json",},
             body: JSON.stringify(body),
@@ -55,18 +55,17 @@ const EditPlan = () => {
         .then((response) => response.json())
         .then((result) => {
             if(result.statusCode === 200) {
-                console.log("Success! Book updated", result)
-                setEditPlan(result.data)
-                // navigate("/admin")
+                console.log("Success! The practice plan was updated successfully", result)
+                setPlan(result.data)
+                navigate(`/plan/${planId}`)
             } else {
                 throw new Error (result.error.message)
             }
         })
-        .catch((error) => setErrorMessage("Error", error));
-        console.log(errorMessage)
+        .catch((error) => setErrorMessage("Error", error, errorMessage));
     }
     
-    console.log(id);
+    // console.log(planId);
 
     return (
         <main>
@@ -84,24 +83,24 @@ const EditPlan = () => {
                                     <div className="pp-section">
                                     <div className="pp-label-input-container">
                                             <label className="pp-tools" htmlFor="title">Title:</label>
-                                            <textarea className="pp-textarea" id="title" name="title" value={editPlan.title} onChange={handleInputChange} required></textarea>
+                                            <textarea className="pp-textarea" id="title" name="title" value={plan.title} onChange={handleInputChange} required></textarea>
                                         </div>
                                         <div className="pp-label-input-container">
                                             <label className="pp-tools" htmlFor="activity">Activity #1:</label>
-                                            <textarea className="pp-textarea" id="activity" name="activity" value={editPlan.activity} onChange={handleInputChange} required></textarea>
+                                            <textarea className="pp-textarea" id="activity" name="activity" value={plan.activity} onChange={handleInputChange} required></textarea>
                                         </div>  
                                         <div className="pp-label-input-container">
                                             <label className="pp-notes" htmlFor="practiceNotes">Practice Notes:</label>
-                                            <textarea className="pp-textarea" id="practiceNotes" name="practiceNotes" value={editPlan.practiceNotes} onChange={handleInputChange} required></textarea>
+                                            <textarea className="pp-textarea" id="practiceNotes" name="practiceNotes" value={plan.practiceNotes} onChange={handleInputChange} required></textarea>
                                         </div>  
                                     </div>
                                 </div>
                                 <div className="pp-buttons">
-                                    <div className="add-section-button">
+                                    {/* <div className="add-section-button">
                                         <button className="cambridge-button">ADD SECTION +</button>
-                                    </div>            
+                                    </div>             */}
                                     <div className="save-button">
-                                        <button className="cambridge-button">SAVE</button>
+                                        <button className="cambridge-button">SUBMIT</button>
                                     </div>
                                 </div>
                         </form>
