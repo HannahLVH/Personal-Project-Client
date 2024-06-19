@@ -11,7 +11,7 @@ import Plan from "./components/Plan";
 import EditPlan from "./components/EditPlan";
 import CreatePlan from "./components/CreatePlan";
 import Profile from "./components/Profile";
-import ProfileSettings from "./components/ProfileSettings";
+import EditProfile from "./components/EditProfile";
 import Roster from "./components/Roster";
 import Footer from "./shared/Footer"
 
@@ -39,7 +39,7 @@ function App() {
           <Route path="/edit-plan/:planId" element={<EditPlan/>}/>
           <Route path="/create-plan" element={<CreatePlan/>}/>
           <Route path="/profile/:userId" element={<Profile/>}/>
-          <Route path="/edit-profile" element={<ProfileSettings/>}/>
+          <Route path="/edit-profile/:userId" element={<EditProfile/>}/>
           <Route path="/student-roster" element={<Roster/>}/>
         </Routes>
         <Footer/>
