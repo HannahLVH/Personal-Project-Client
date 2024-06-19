@@ -54,7 +54,7 @@ const EditPlan = () => {
         })
         .then((response) => response.json())
         .then((result) => {
-            if(result.statusCode === 200) {
+            if(result.statusCode === 201) {
                 console.log("Success! The practice plan was updated successfully", result)
                 setPlan(result.data)
                 navigate(`/plan/${planId}`)
@@ -100,7 +100,7 @@ const EditPlan = () => {
                                         <button className="cambridge-button">ADD SECTION +</button>
                                     </div>             */}
                                     <div className="save-button">
-                                        <button className="cambridge-button">SUBMIT</button>
+                                        <button className="cambridge-button" type="submit">SAVE</button>
                                     </div>
                                 </div>
                         </form>
