@@ -1,16 +1,34 @@
 import React, {useEffect,useState } from "react";
-import userData from "../data/userData"
+// import userData from "../data/userData"
+import {useParams} from "react-router-dom";
 
-const ProfileSettings = () => {
-    const id = "6648dba36cf94ff0c2d6ee85";
+const Profile = () => {
+    // const id = "6648dba36cf94ff0c2d6ee85";
+    const {userId} = useParams();
     const [user, setUser] = useState({})
 
     useEffect(() => {
-        const findUser = userData.find((user) => user._id === id);
-        setUser(findUser);
-    }, [id])
+        // const findUser = userData.find((user) => user._id === id);
+        // setUser(findUser);
+        fetch(`http://localhost:8080/user/profile/${userId}`,{
+            method: "GET",
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200)
+            {
+                console.log(result)
+                setUser(result.data)
+            } else {
+                throw new Error(result.error.message)
+            }
+        })
+        .catch((error) => console.log ("Error", error))
+        
+    }, [userId])
 
-    console.log(user)
+    // console.log(user)
+    console.log(userId)
 
     return (
     <main>
@@ -65,4 +83,4 @@ const ProfileSettings = () => {
     );
 };
 
-export default ProfileSettings;
+export default Profile;

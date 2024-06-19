@@ -4,9 +4,10 @@ import {useParams} from "react-router-dom";
 
 const PlanList = () => {
     const {userId} = useParams();
+
     const [plans, setPlans] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
-
+    
     useEffect (() => {
         // setPlans(planData);
         fetch(`http://localhost:8080/user/plans/${userId}`, {
@@ -44,26 +45,16 @@ console.log("Error:", errorMessage)
                                     <th>TITLE</th>
                                     <th>DATE CREATED</th>
                                     <th>CREATED BY</th>
-                                    <th>MANAGE</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {plans.map((plan) =>
                                 <tr key={plan.id}>
-                                    
                                     <td>{plan.title}</td>
                                     <td>{plan.createdOn}</td>
                                     <td>{plan.createdBy.username}</td>
                                     <td>
-                                        <select className="manage-pp-select" name="manage-pp-options" id="manage-pp-options" defaultValue={"selected"}>
-                                            <option value="selected">Select an option:</option>
-                                            <option value="completed-value">Completed</option>
-                                            <option value="pending-value">Pending</option>
-                                            <option value="assign-to-value">Assign to student</option>
-                                            <option value="duplicate-value">Duplicate value</option>
-                                            <option value="edit-value">Edit</option>
-                                            <option value="archive-value">Archive</option>
-                                        </select>
+                                        <button><a href={`/plan/${plan._id}`}>View</a></button>
                                     </td>
                                 </tr>
                                 )}

@@ -38,7 +38,7 @@ function App() {
           <Route path="/plan/:planId" element={<Plan/>}/>
           <Route path="/edit-plan/:planId" element={<EditPlan/>}/>
           <Route path="/create-plan" element={<CreatePlan/>}/>
-          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/profile/:userId" element={<Profile/>}/>
           <Route path="/edit-profile" element={<ProfileSettings/>}/>
           <Route path="/student-roster" element={<Roster/>}/>
         </Routes>
