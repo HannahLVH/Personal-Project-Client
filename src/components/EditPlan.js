@@ -1,14 +1,36 @@
 import React, { useEffect, useState } from "react";
-import planData from "../data/planData";
+// import planData from "../data/planData";
+import { useParams } from "react-router-dom";
 
 const EditPlan = () => {
-    const _id = "1";
-    const [editPlan, setEditPlan] = useState({})
+    // const _id = "1";
+    const {id} = useParams();
+    const [editPlan, setEditPlan] = useState({
+            title: "",
+            activity: "",
+            practiceNotes: "",
+    })
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
-        const findPlan = planData.find((plan) => plan._id === _id);
-        setEditPlan(findPlan);
-    }, [_id])
+        // const findPlan = planData.find((plan) => plan._id === _id);
+        // setEditPlan(findPlan);
+        fetch(`http://localhost:8080/user/plan/${id}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"},
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200)
+            {
+                console.log(result)
+                setEditPlan(result.data)
+            } else {
+                throw new Error(result.error.message)
+            }
+        })
+        .catch((error) => setErrorMessage("Error", error))
+    }, [id])
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -17,10 +39,34 @@ const EditPlan = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log("Method running successfully")
-    }
+        const body = {
+            title: e.target.title.value,
+            activity: e.target.activity.value,
+            practiceNotes: e.target.practiceNotes.value,    
+        }
+        
+        console.log("Method running successfully", editPlan);
 
-    console.log(editPlan)
+        fetch(`http://localhost:8080/user/edit-plan/${id}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200) {
+                console.log("Success! Book updated", result)
+                setEditPlan(result.data)
+                // navigate("/admin")
+            } else {
+                throw new Error (result.error.message)
+            }
+        })
+        .catch((error) => setErrorMessage("Error", error));
+        console.log(errorMessage)
+    }
+    
+    console.log(id);
 
     return (
         <main>

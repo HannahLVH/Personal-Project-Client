@@ -1,17 +1,33 @@
 import React, {useEffect, useState} from "react";
-import planData from "../data/planData";
+// import planData from "../data/planData";
+import { useParams } from "react-router-dom";
 
 const Plan = () => {
-    const _id = "1";
+    // const _id = "1";
+    const {id} = useParams();
     const [plan, setPlan] = useState({});
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
-        const findPlan = planData.find((plan) => plan._id === _id);
-        setPlan(findPlan);
-    }, [_id])
+        fetch(`http://localhost:8080/user/plan/${id}`, {
+            method: "GET",
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200)
+            {
+                console.log(result)
+                setPlan(result.data)
+            } else {
+                throw new Error(result.error.message)
+            }
+        })
+        .catch((error) => setErrorMessage("Error", error))
+        console.log(errorMessage)
+    }, [id])
 
-    console.log(plan)
-
+    
+    console.log(id)
     return (
         <main>
             <div className="content-section">
