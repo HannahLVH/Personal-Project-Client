@@ -65,7 +65,7 @@ const EditPlan = () => {
         .catch((error) => setErrorMessage("Error", error, errorMessage));
     }
     
-    // console.log(planId);
+    console.log(plan);
 
     return (
         <main>
