@@ -1,18 +1,61 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {useNavigate, Link} from "react-router-dom";
+import userData from "../data/userData";
 
-const Header = () => {
+
+const Header = ({user, setUser}) => {
+  const navigate = useNavigate();
+  const _id = "6648dba36cf94ff0c2d6ee88";
+
+    useEffect(() => {
+        const findUser = userData.find((user) => user._id === _id);
+        setUser(findUser);
+    }, [setUser]);
+
+  
+
+  const handleLogout = (e) => {
+    fetch("http://localhost:8080/logout", {
+        method: "GET",
+        headers: {"Content-Type": "application/json",
+        },
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200) {
+                setUser({});
+                localStorage.removeItem("user");
+                console.log("You logged out successfully!")
+                navigate("/");
+            } else {
+                throw new Error (result.error.message);
+                
+            }
+        })
+        .catch((error) => console.log("Error", error)); 
+        navigate("/");
+}
+
     return (
       <main>
         <div className="nav-section">
             <nav className="nav-container">
                 <span className="nav-logo-background">
-                <a href="index.html"><img src="/images/Practice-Time-Logo.png" alt="practice time logo: a black letter 'p' over a black letter 't'" className="nav-logo-img" style={{width: "180px"}}/></a>
+                <Link to="/"><img src="/images/Practice-Time-Logo.png" alt="practice time logo: a black letter 'p' over a black letter 't'" className="nav-logo-img" style={{width: "180px"}}/></Link>
                 </span>
                 <div className="nav-menu-container">
                     <ul className="nav-menu-list nav-link-styling">
-                        <li className="nav-horizontal-menu"><a href="index.html">HOME</a></li>
-                        <li className="nav-horizontal-menu"><a href="create-account.html">CREATE ACCOUNT</a></li>
-                        <li className="nav-horizontal-menu"><a href="login.html">LOGIN</a></li>
+                        <li className="nav-horizontal-menu"><Link to="/">HOME</Link></li>
+                        <li className="nav-horizontal-menu"><Link to="/signup">CREATE ACCOUNT</Link></li>
+                        {user.username ? (
+                        <>
+                        <li className="nav-horizontal-menu"><Link to="/plans/:userId">MY PLANS</Link></li>
+                        <li className="nav-horizontal-menu"><Link to="/create-plan">NEW PLAN</Link></li>
+                        <li className="nav-horizontal-menu"><a href="#" onClick={handleLogout}>LOGOUT</a></li>
+                        </>
+                        ) : (
+                        <li className="nav-horizontal-menu"><Link to="/login">LOGIN</Link></li>
+                        )}
                     </ul>
                 </div>
                 <div className="hamburger-menu">

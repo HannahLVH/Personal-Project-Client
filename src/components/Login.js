@@ -1,14 +1,41 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [login, setLogin] = useState({});
+    const navigate = useNavigate();
+    const [login, setLogin] = useState({
+        username: "",
+        password: "",
+    });
 
-    const handleLoginSubmit = (e) => {
-        e.preventDefault();
+    const handleInputChange = (e) => {
         const {name, value} = e.target;
         setLogin((prevSetLogin) => ({...prevSetLogin, [name]: value}));
-        console.log("Method running successfully")
-        console.log(login)
+    }
+
+    const handleLoginSubmit = (e) => {
+        const body = {
+            username: e.target.username.value,
+            password: e.target.password.value
+        }
+        e.preventDefault();
+        console.log("Method running successfully", login)
+        fetch("http://localhost:8080/login/local", {
+            method: "POST",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200) {
+                localStorage.setItem("user", JSON.stringify(result.data));
+                console.log("Success! You are logged in");
+                navigate("/")
+            } else {
+                throw new Error (result.error.message)
+            }
+        })
+        .catch((error) => console.log("Error", error));
     }
 
     return (
@@ -25,11 +52,11 @@ const Login = () => {
                                 <div className="form-fields">
                                     <span className="label-input-container">
                                         <label htmlFor="username">Email Address</label>
-                                        <input type="text" name="username" id="username" placeholder="Email" value={login.username} onChange={handleLoginSubmit}required/>
+                                        <input type="text" name="username" id="username" placeholder="Email" value={login.username} onChange={handleInputChange}required/>
                                     </span>
                                     <span className="label-input-container">
                                         <label htmlFor="password">Password: </label>
-                                        <input type="text" name="password" id="password" placeholder="Password" value={login.password} onChange={handleLoginSubmit} required/>
+                                        <input type="text" name="password" id="password" placeholder="Password" value={login.password} onChange={handleInputChange} required/>
                                     </span>
                                     <span className="enter-button">
                                         <br/>
