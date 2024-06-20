@@ -1,7 +1,16 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const CreateAccount = () => {
-    const [signUp, setSignUp] = useState({});
+    const navigate = useNavigate();
+    const [signUp, setSignUp] = useState({
+        firstName: "",
+        lastName: "",
+        role: "",
+        username: "",
+        password: ""
+    });
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -12,6 +21,29 @@ const CreateAccount = () => {
         e.preventDefault();
         console.log("Method running successfully")
         console.log(signUp)
+        const body = {
+            firstName: e.target.firstName.value,
+            lastName: e.target.lastName.value,
+            role: e.target.role.value,
+            username: e.target.username.value,
+            password: e.target.password.value
+        }
+        fetch("http://localhost:8080/signup", {
+            method: "POST",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200) {
+                localStorage.setItem("user", JSON.stringify(result.data));
+                console.log("Success! You are signed up");
+                navigate("/")
+            } else {
+                throw new Error (result.error.message)
+            }
+        })
+        .catch((error) => console.log("Error", error));
     }
 
     return (
@@ -28,7 +60,7 @@ const CreateAccount = () => {
                 <form action="#" onSubmit={handleSignUpSubmit}>
                     <div className="form-fields">
                         <label htmlFor="role">Sign up as:</label>
-                        <select className="manage-pp-select" name="manage-pp-options" id="manage-pp-options" defaultValue={"selected"} required>
+                        <select className="manage-pp-select" name="role" id="role" defaultValue={"selected"} onChange={handleInputChange} required>
                             <option value="selected">Select an option:</option>
                             <option value="teacher">Teacher</option>
                             <option value="student">Student</option>
@@ -37,37 +69,37 @@ const CreateAccount = () => {
                     <div className="form-fields">
                     <span className="label-input-container">
                         <div>
-                            <label for="firstName"> First Name: </label>
+                            <label htmlFor="firstName"> First Name: </label>
                             <input type="text" name="firstName" id="firstName" placeholder="First Name"
                             value={signUp.firstName}
-                            onChange={handleSignUpSubmit}
+                            onChange={handleInputChange}
                             required />
                         </div>
                     </span>
                     <span className="label-input-container">
                     <div>
-                        <label for="lastName"> Last Name: </label>
+                        <label htmlFor="lastName"> Last Name: </label>
                         <input type="text" name="lastName" id="lastName" placeholder="Last Name"
                         value={signUp.lastName}
-                        onChange={handleSignUpSubmit}
+                        onChange={handleInputChange}
                         required />
                     </div>
                     </span>
                     <span className="label-input-container">
                     <div>
-                        <label for="username">Email Address: </label>
+                        <label htmlFor="username">Email Address: </label>
                         <input type="text" name="username" id="username" placeholder="Email"
                         value={signUp.username}
-                        onChange={handleSignUpSubmit}
+                        onChange={handleInputChange}
                         required/>
                     </div>
                     </span>
                     <span className="label-input-container">
                     <div>
-                        <label for="password">Password: </label>
+                        <label htmlFor="password">Password: </label>
                         <input type="text" name="password" id="password" placeholder="Password"
                         value={signUp.password}
-                        onChange={handleSignUpSubmit}
+                        onChange={handleInputChange}
                         required />
                     </div>
                     </span>
