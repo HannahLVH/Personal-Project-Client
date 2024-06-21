@@ -39,12 +39,13 @@ console.log("Error:", errorMessage)
                 </span>
                 <div className="table-container">
                     <div className="table-wrapper">
-                        <table className="manage-table">
+                    <table className="manage-table">
                             <thead>
                                 <tr>
                                     <th>TITLE</th>
                                     <th>DATE CREATED</th>
                                     <th>CREATED BY</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>

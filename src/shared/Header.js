@@ -46,7 +46,6 @@ const Header = ({user, setUser}) => {
                 <div className="nav-menu-container">
                     <ul className="nav-menu-list nav-link-styling">
                         <li className="nav-horizontal-menu"><Link to="/">HOME</Link></li>
-                        <li className="nav-horizontal-menu"><Link to="/signup">CREATE ACCOUNT</Link></li>
                         {user.username ? (
                         <>
                         <li className="nav-horizontal-menu"><Link to="/plans/:userId">MY PLANS</Link></li>
@@ -54,7 +53,10 @@ const Header = ({user, setUser}) => {
                         <li className="nav-horizontal-menu"><a href="#" onClick={handleLogout}>LOGOUT</a></li>
                         </>
                         ) : (
-                        <li className="nav-horizontal-menu"><Link to="/login">LOGIN</Link></li>
+                          <>
+                          <li className="nav-horizontal-menu"><Link to="/signup">CREATE ACCOUNT</Link></li> 
+                          <li className="nav-horizontal-menu"><Link to="/login">LOGIN</Link></li>
+                          </>
                         )}
                     </ul>
                 </div>
