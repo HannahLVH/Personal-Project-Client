@@ -1,0 +1,102 @@
+/* footer styling */
+
+.footer-section {
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 100%;
+    min-width: 100%;
+    background-color: var(--Sienna-Burnt);
+    font-family: 'Caveat', sans-serif;
+    padding-bottom: 1em;
+    padding-left: 0;
+    padding-right: 3em;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-menu {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.footer-menu h3 {
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    margin-right: 0;
+}
+
+.hlv-logo-link-styling img:hover {
+    background-color: var(--Eggshell);
+}
+
+.hlv-logo-link-styling img:active {
+    background-color: var(--Blue-Delft);
+}
+
+.footer-hannah-lovez-logo {
+    position: relative;
+    left: 1em;
+    border-radius: 50%;
+    background-color: var(--Light-Blue-Cambridge);
+}
+
+.product h3{
+    margin-right: 0;
+    
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-brands {
+    font-size: 1em;
+}
+
+.footer-menu-container {
+    width: 100%;
+}
+
+.footer-text-styling h3 {
+    color: var(--yellow);
+}
+
+.footer-text-styling {
+    color: var(--white);
+}
+
+.footer-link-styling a:link { 
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 2em;
+    padding: 0.2em;
+}
+
+.footer-link-styling a:visited {
+    color: var(--white);
+}
+
+.footer-link-styling a:hover {
+    font-weight: bold;
+    color: var(--black);
+}
+
+.footer-link-styling a:active {
+    background-color: var(--Sunset);
+    color: var(--Blue-Delft);
+    font-weight: bold;
+}

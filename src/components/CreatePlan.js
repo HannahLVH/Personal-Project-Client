@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "../components/mediaQueries.css";
 
 const CreatePlan = () => {
     const [createPlan, setCreatePlan] = useState({

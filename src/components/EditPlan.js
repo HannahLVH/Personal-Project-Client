@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import planData from "../data/planData";
 import { useParams, useNavigate } from "react-router-dom";
+import "../components/mediaQueries.css"
 
 const EditPlan = () => {
     const navigate = useNavigate();

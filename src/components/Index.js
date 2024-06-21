@@ -1,4 +1,5 @@
 import React from "react";
+import "../components/mediaQueries.css"
 
 const Index = () => {
     return (

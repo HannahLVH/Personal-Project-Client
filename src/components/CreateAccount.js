@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import "../components/mediaQueries.css";
 
 
 const CreateAccount = () => {
@@ -59,12 +60,16 @@ const CreateAccount = () => {
             <div className="form-container">
                 <form action="#" onSubmit={handleSignUpSubmit}>
                     <div className="form-fields">
+                    <span className="label-input-container">
+                        <div>
                         <label htmlFor="role">Sign up as:</label>
                         <select className="manage-pp-select" name="role" id="role" defaultValue={"selected"} onChange={handleInputChange} required>
                             <option value="selected">Select an option:</option>
                             <option value="teacher">Teacher</option>
                             <option value="student">Student</option>
                         </select>
+                        </div>
+                    </span>
                     </div>
                     <div className="form-fields">
                     <span className="label-input-container">

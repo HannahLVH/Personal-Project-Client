@@ -1,6 +1,7 @@
 import React, {useEffect,useState } from "react";
 // import userData from "../data/userData";
 import {useParams, useNavigate} from "react-router-dom";
+import "../components/mediaQueries.css"
 
 const EditProfile = () => {
     const navigate = useNavigate();

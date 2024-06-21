@@ -1,6 +1,9 @@
 import React, {useEffect} from "react";
 import {useNavigate, Link} from "react-router-dom";
 import userData from "../data/userData";
+import "./Header.css"
+import "../components/mediaQueries.css"
+
 
 
 const Header = ({user, setUser}) => {
@@ -46,7 +49,7 @@ const Header = ({user, setUser}) => {
                 <div className="nav-menu-container">
                     <ul className="nav-menu-list nav-link-styling">
                         <li className="nav-horizontal-menu"><Link to="/">HOME</Link></li>
-                        <li className="nav-horizontal-menu"><Link to="/signup">CREATE ACCOUNT</Link></li>
+                        
                         {user.username ? (
                         <>
                         <li className="nav-horizontal-menu"><Link to="/plans/:userId">MY PLANS</Link></li>
@@ -59,7 +62,8 @@ const Header = ({user, setUser}) => {
                     </ul>
                 </div>
                 <div className="hamburger-menu">
-                    <i className="fa-solid fa-bars" style={{color: "#ffffff"}}></i>  
+                    <i className="fa-solid fa-bars" style={{color: "#ffffff"}}></i> 
+                    <li className="nav-horizontal-menu"><Link to="/signup">CREATE ACCOUNT</Link></li> 
                 </div>
             </nav>
         </div>
