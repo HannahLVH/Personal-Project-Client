@@ -44,12 +44,12 @@ const Plan = () => {
                         {/* <form action="#"> */}
                                 <div>
                                     <div className="pp-section">
-                                    <div className="pp-label-input-container">
+                                        <div className="pp-label-input-container">
                                             <span className="pp-tools" htmlFor="activity">Title:</span>
                                             <p className="pp-textarea">{plan.title}</p>
                                         </div> 
                                         <div className="pp-label-input-container">
-                                            <span className="pp-tools" htmlFor="activity">Activity #1:</span>
+                                            <span className="pp-tools" htmlFor="activity">Activity:</span>
                                             <p className="pp-textarea">{plan.activity}</p>
                                         </div>  
                                         <div className="pp-label-input-container">
@@ -58,12 +58,10 @@ const Plan = () => {
                                         </div>  
                                         <div className="pp-label-input-container">
                                             <span className="pp-tools" htmlFor="createdBy">Created by:</span>
-                                            <br/>
                                             <span className="pp-textarea">{plan.createdBy ? plan.createdBy.username : "Unknown"}</span>
                                         </div>  
                                     </div>
                                 </div>
-                                <br/>
                                 <div className="pp-buttons">            
                                     <div className="save-button">
                                         <button className="cambridge-button" onClick={() => navigate(`/edit-plan/${planId}`)}>EDIT PLAN</button>

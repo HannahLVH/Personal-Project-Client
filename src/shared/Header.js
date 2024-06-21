@@ -8,10 +8,10 @@ import "../components/mediaQueries.css"
 
 const Header = ({user, setUser}) => {
   const navigate = useNavigate();
-  const _id = "6648dba36cf94ff0c2d6ee88";
+  const userId = "6648dba36cf94ff0c2d6ee85";
 
     useEffect(() => {
-        const findUser = userData.find((user) => user._id === _id);
+        const findUser = userData.find((user) => user._id === userId);
         setUser(findUser);
     }, [setUser]);
 
@@ -52,8 +52,9 @@ const Header = ({user, setUser}) => {
                         
                         {user.username ? (
                         <>
-                        <li className="nav-horizontal-menu"><Link to="/plans/:userId">MY PLANS</Link></li>
+                        <li className="nav-horizontal-menu"><Link to={`/plans/${userId}`}>MY PLANS</Link></li>
                         <li className="nav-horizontal-menu"><Link to="/create-plan">NEW PLAN</Link></li>
+                        <li className="nav-horizontal-menu"><Link to={`/profile/${userId}`}>PROFILE</Link></li>
                         <li className="nav-horizontal-menu"><a href="#" onClick={handleLogout}>LOGOUT</a></li>
                         </>
                         ) : (

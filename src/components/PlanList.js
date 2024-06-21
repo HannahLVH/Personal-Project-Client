@@ -54,8 +54,8 @@ console.log("Error:", errorMessage)
                                     <td>{plan.title}</td>
                                     <td>{plan.createdOn}</td>
                                     <td>{plan.createdBy.username}</td>
-                                    <td>
-                                        <button><a href={`/plan/${plan._id}`}>View</a></button>
+                                    <td className="plans-buttons">
+                                        <button className="cambridge-button"><a href={`/plan/${plan._id}`}>View</a></button>
                                     </td>
                                 </tr>
                                 )}

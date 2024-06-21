@@ -11,18 +11,18 @@ const Footer = () => {
                     <div className="footer-menu">
                         <div className="footer-link-styling">
                             <h3>LINKS</h3>
-                            <a href="index.html">Home</a><br/>
-                            <a href="create-account.html">Join</a><br/>
-                            <a href="login.html">Login</a>
+                            <a href="/">Home</a><br/>
+                            <a href="/signup">Join</a><br/>
+                            <a href="/login">Login</a>
                         </div>
-                        <div className="footer-link-styling">
+                        {/* <div className="footer-link-styling">
                             <h3>FOLLOW US</h3>
                             <span className="footer-socials">
                                 <a href="#"><i className="fa-brands fa-facebook"></i></a>
                                 <a href="#"><i className="fa-brands fa-instagram"></i></a>
                                 <a href="#"><i className="fa-brands fa-twitter"></i></a>
                             </span>
-                        </div>
+                        </div> */}
                         <div className="product-container hlv-logo-link-styling">
                             <span className="product">
                             <h3>A PRODUCT OF</h3>

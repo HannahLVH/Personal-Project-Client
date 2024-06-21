@@ -86,7 +86,7 @@ const EditProfile = () => {
             <div className="profile-form-fields">
                 <form action="#" onSubmit={handleEditSubmit}>
                 <div className="profile-form-section">
-                    <label htmlFor="firstName">First Name:</label>
+                    <label htmlFor="firstName" className="profile-label">First Name:</label>
                     <input
                     type="text"
                     name="firstName"
@@ -99,7 +99,7 @@ const EditProfile = () => {
                     </div>
                 </div>
                 <div className="profile-form-section">
-                    <label htmlFor="lastName">Last Name:</label>
+                    <label htmlFor="lastName" className="profile-label">Last Name:</label>
                     <input
                     type="text"
                     name="lastName"
@@ -112,7 +112,7 @@ const EditProfile = () => {
                     </div>
                 </div>
                 <div className="profile-form-section">
-                    <label htmlFor="username">Username:</label>
+                    <label htmlFor="username" className="profile-label">Username:</label>
                     <input
                     type="text"
                     name="username"
@@ -124,13 +124,13 @@ const EditProfile = () => {
                     <div className="save-button">
                     </div>
                 </div>
-                <div>
-                    <span>Role: {user.role}</span>
-                    <br/>
+                <div className="profile-form-section">
+                    <span className="profile-label">Role:</span>
+                    <span>{user.role}</span>
                     <span>*Role cannot be changed </span>
                 </div>
                 <div className="profile-form-section">
-                    <label htmlFor="about">About Me:</label>
+                    <label htmlFor="about" className="profile-label">About Me:</label>
                     <textarea
                     type="text"
                     name="about"

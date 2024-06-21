@@ -250,9 +250,14 @@ body button:active {
   width: 100%;
   margin: auto;
   display: flex;   
-  flex-direction: row; 
+  flex-direction: column; 
   margin-bottom: 1.5em;
   justify-content: space-around;
+}
+
+.profile-form-section label {
+  text-align: center;
+  padding-bottom: 0.2em;
 }
 
 .profile-pic-section-container {
@@ -285,6 +290,12 @@ body button:active {
   min-width: 9em;
   height: 10em;
   padding: 0.5em;
+  
+}
+
+.profile-form-section >span {
+  line-height: 1.5em;
+  text-align: center;
 }
 
 .profile-pic-section {
@@ -315,10 +326,24 @@ body button:active {
 
 }
 
+.profile-form-section {
+  /* width: 100%;
+  margin: auto;
+  display: flex;   
+  flex-direction: column; 
+  margin-bottom: 1.5em;
+  justify-content: center; */
+  align-items: center;
+}
+
 .profile-form-section button {
   padding: 0.5em;
   border-radius: 5em;
-  margin-left: 1em;
+  /* margin-left: 1em; */
+}
+
+.profile-label {
+  font-weight: bold;
 }
 
 /* new pp form styling */
@@ -339,8 +364,8 @@ body button:active {
 
 .pp-section {
   width: 100%;
-  display: flex;   
-  flex-direction: row; 
+  /* display: flex;   
+  flex-direction: column;  */
   margin-bottom: 1.5em;
   align-items: center;
 }
@@ -353,8 +378,34 @@ body button:active {
   align-items: left;
 }
 
-
 .pp-textarea {
+  width: 90%;
+  min-width: 1em;
+  /* max-width: 50em;*/
+  min-height: 1em; 
+  /* max-height: 10em;  */
+  margin: 0.5em;
+  padding: 0.5em;
+  line-height: 1.2em;
+}
+
+.pp-form-section {
+  width: 100%;
+  display: flex;   
+  flex-direction: row; 
+  margin-bottom: 1.5em;
+  align-items: center;
+}
+
+.pp-form-label-input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em;
+  align-items: left;
+}
+
+.pp-form-textarea {
   width: 100%;
   min-width: 1em;
   max-width: 50em;
@@ -368,6 +419,10 @@ body button:active {
   padding-left: 0.5em;
 }
 
+.pp-tools {
+  font-weight: bold;
+}
+
 
 .pp-buttons {
   display: flex;
@@ -375,6 +430,37 @@ body button:active {
   margin-top: 1em;
   margin-bottom: 2em;
 }
+
+.plans-buttons button {
+  border-radius: 2em;
+}
+
+.plans-buttons button {
+  background-color: var(--Light-Blue-Cambridge);
+}
+
+.plans-buttons button:hover {
+  background-color: var(--white);
+}
+
+.plans-buttons button:active {
+  background-color: var(--Blue-Delft);
+  color: var(--Light-Blue-Cambridge);
+
+}
+
+.plans-buttons a:link {
+  color: var(--black);
+  text-decoration: none;
+}
+.plans-buttons a:visited {
+  color: var(--black);
+}
+
+.plans-buttons a:active {
+  color: var(--Light-Blue-Cambridge);
+}
+
 
 .pp-buttons button {
   padding: 1em;
@@ -416,10 +502,9 @@ body button:active {
   align-items: center;
 }
 
-/* login form */
+/* login and sign-up form */
 
-.form-fields input[type=username],
-.form-fields input[type=password] {
+.form-fields input {
   box-sizing: border-box;
   flex-grow: 2;
   width: 50vw;
@@ -429,6 +514,18 @@ body button:active {
   padding:0.5em;
   margin-top: 0.5em;
   margin-left: 0.2em;
+}
+
+.form-fields select {
+  box-sizing: border-box;
+  flex-grow: 2;
+  width: 50vw;
+  min-width: 1em;
+  max-width: 20em;
+  flex-basis: 100em; 
+  padding:0.5em;
+  margin-top: 0.5em;
+  margin-left: 0.em;
 }
 
 .form-fields label {
@@ -453,7 +550,7 @@ body button:active {
   max-width: 20em;
   flex-basis: 100em;
   padding: 5px;
-  margin-right: 1.5em;
+  /* margin-right: 1.5em; */
 }
 
 

@@ -43,18 +43,22 @@ const Profile = () => {
             <div className="profile-form-container">
             <div className="profile-form-fields">
                 <div className="profile-form-section">
-                    <span> Name: {user.firstName} {user.lastName} </span>
+                    <span className="profile-label"> Name:</span>
+                    <span>{user.firstName} {user.lastName} </span>
                 </div>
                 <div className="profile-form-section">
-                    <span> Username: {user.username} </span>
-                </div>
-                <div>
-                    <span>Role: {user.role}</span>
-                    <br/>
-                    <span>*Role cannot be changed </span>
+                    <span className="profile-label"> Username:</span>
+                    <span>{user.username}</span>
                 </div>
                 <div className="profile-form-section">
-                    <span> About me: {user.about}</span>
+                    <span className="profile-label">Role:</span>
+                    <span>{user.role}</span>
+                </div>
+                <div className="profile-form-section">
+                    <span className="profile-label"> About me: </span>
+                    <span >{user.about}</span>
+                </div>
+                <div className="profile-form-section">
                     <span className="save-button">
                     <br/>
                     <button className="cambridge-button" onClick={() => navigate(`/edit-profile/${userId}`)}>EDIT PROFILE</button>

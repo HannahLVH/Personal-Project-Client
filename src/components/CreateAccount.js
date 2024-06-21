@@ -56,64 +56,58 @@ const CreateAccount = () => {
                         <h1>CREATE ACCOUNT</h1>
                     </header>
                 </span>
-            </div>
             <div className="form-container">
                 <form action="#" onSubmit={handleSignUpSubmit}>
                     <div className="form-fields">
-                    <span className="label-input-container">
-                        <div>
-                        <label htmlFor="role">Sign up as:</label>
-                        <select className="manage-pp-select" name="role" id="role" defaultValue={"selected"} onChange={handleInputChange} required>
-                            <option value="selected">Select an option:</option>
-                            <option value="teacher">Teacher</option>
-                            <option value="student">Student</option>
-                        </select>
-                        </div>
-                    </span>
-                    </div>
-                    <div className="form-fields">
-                    <span className="label-input-container">
-                        <div>
-                            <label htmlFor="firstName"> First Name: </label>
-                            <input type="text" name="firstName" id="firstName" placeholder="First Name"
-                            value={signUp.firstName}
+                        <span className="label-input-container">
+                            <label htmlFor="role">Sign up as:</label>
+                            <select className="manage-pp-select" name="role" id="role" defaultValue={"selected"} onChange={handleInputChange} required>
+                                <option value="selected">Select an option:</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="student">Student</option>
+                            </select>
+                        </span>
+                        <span className="label-input-container">
+                                <label htmlFor="firstName"> First Name: </label>
+                                <input className="manage-pp-select" type="text" name="firstName" id="firstName" placeholder="First Name"
+                                value={signUp.firstName}
+                                onChange={handleInputChange}
+                                required />   
+                        </span>
+                        <span className="label-input-container">
+                        
+                            <label htmlFor="lastName"> Last Name: </label>
+                            <input className="manage-pp-select" type="text" name="lastName" id="lastName" placeholder="Last Name"
+                            value={signUp.lastName}
                             onChange={handleInputChange}
                             required />
-                        </div>
-                    </span>
-                    <span className="label-input-container">
-                    <div>
-                        <label htmlFor="lastName"> Last Name: </label>
-                        <input type="text" name="lastName" id="lastName" placeholder="Last Name"
-                        value={signUp.lastName}
-                        onChange={handleInputChange}
-                        required />
-                    </div>
-                    </span>
-                    <span className="label-input-container">
-                    <div>
-                        <label htmlFor="username">Email Address: </label>
-                        <input type="text" name="username" id="username" placeholder="Email"
-                        value={signUp.username}
-                        onChange={handleInputChange}
-                        required/>
-                    </div>
-                    </span>
-                    <span className="label-input-container">
-                    <div>
-                        <label htmlFor="password">Password: </label>
-                        <input type="text" name="password" id="password" placeholder="Password"
-                        value={signUp.password}
-                        onChange={handleInputChange}
-                        required />
-                    </div>
-                    </span>
-                    <span className="enter-button">
-                        <br/>
-                        <button className="submit-button yellow-button">Submit</button>
-                    </span>
-                    </div>
+                    
+                        </span>
+                        <span className="label-input-container">
+                        
+                            <label htmlFor="username">Email Address: </label>
+                            <input className="manage-pp-select" type="text" name="username" id="username" placeholder="Email"
+                            value={signUp.username}
+                            onChange={handleInputChange}
+                            required/>
+                    
+                        </span>
+                        <span className="label-input-container">
+                        
+                            <label htmlFor="password">Password: </label>
+                            <input className="manage-pp-select" type="text" name="password" id="password" placeholder="Password"
+                            value={signUp.password}
+                            onChange={handleInputChange}
+                            required />
+                    
+                        </span>
+                        <span className="enter-button">
+                            <br/>
+                            <button className="submit-button yellow-button">Submit</button>
+                        </span>
+                   </div>
                 </form>
+            </div>
             </div>
             <br/>
         </div>

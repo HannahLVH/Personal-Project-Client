@@ -38,11 +38,11 @@ const CreatePlan = () => {
                                             <textarea className="pp-textarea" id="title" name="title" placeholder="Example: Practice Plan for Audition" value={createPlan.title} onChange={handleInputChange} required></textarea>
                                         </div>
                                         <div className="pp-label-input-container">
-                                            <label className="pp-tools" htmlFor="activity">Activity #1:</label>
+                                            <label className="pp-tools" htmlFor="activity">Activity:</label>
                                             <textarea className="pp-textarea" id="activity" name="activity" placeholder="Example: Warm ups / Scales" value={createPlan.activity} onChange={handleInputChange} required></textarea>
                                         </div>  
                                         <div className="pp-label-input-container">
-                                            <label className="pp-notes" htmlFor="practiceNotes">Practice Notes:</label>
+                                            <label className="pp-tools" htmlFor="practiceNotes">Practice Notes:</label>
                                             <textarea className="pp-textarea" id="practiceNotes" name="practiceNotes" placeholder="What should be the focus of this activity?" value={createPlan.practiceNotes} onChange={handleInputChange} required></textarea>
                                         </div>  
                                     </div>
