@@ -1,11 +1,51 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../components/mediaQueries.css";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 const CreatePlan = () => {
+    const navigate = useNavigate();
+    const [user, setUser] = useState({username: ""})
+    const {userId} = useParams();
+    const {planId} = useParams();
+    const [students, setStudents] = useState([]);
     const [createPlan, setCreatePlan] = useState({
-        // activity: "",
-        // practiceNotes: ""
+        createdBy: userId, 
+        assignedTo: "", 
+        title: "",
+        activity: "",
+        practiceNotes: ""
     });
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/user/profile/${userId}`)
+            .then(response => response.json())
+            .then(result => {
+                if (result.statusCode === 200) {
+                    setUser(result.data);
+                } else {
+                    throw new Error(result.error.message);
+                }
+            })
+            .catch(error => console.error("Error", error));
+    }, [userId]);
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/user/student-roster`, {
+        method: "GET",
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200)
+            {
+                // console.log(result)
+                setStudents(result.data)
+            } else {
+                throw new Error(result.error.message)
+            }
+        })
+        .catch((error) =>console.log("Error", error))
+    }, [])
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -14,7 +54,34 @@ const CreatePlan = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log("Method running successfully")
+        console.log("Method running successfully", createPlan)
+        const body = {
+            createdBy: createPlan.createdBy,
+            assignedTo: createPlan.assignedTo,
+            title: e.target.title.value,
+            activity: e.target.activity.value,
+            practiceNotes: e.target.practiceNotes.value,    
+        }
+
+        console.log(body);
+        
+        fetch(`http://localhost:8080/user/${userId}/create-plan`,
+        {
+            method: "POST",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200) {
+                console.log("Success! The practice plan was created successfully", result)
+                setCreatePlan(result.data)
+                navigate(`/plan/${planId}`)
+            } else {
+                throw new Error (result.error.message)
+            }
+        })
+        .catch((error) => console.log("Error", error));
     }
 
     console.log(createPlan)
@@ -45,6 +112,7 @@ const CreatePlan = () => {
                                             <label className="pp-tools" htmlFor="practiceNotes">Practice Notes:</label>
                                             <textarea className="pp-textarea" id="practiceNotes" name="practiceNotes" placeholder="What should be the focus of this activity?" value={createPlan.practiceNotes} onChange={handleInputChange} required></textarea>
                                         </div>  
+                                        <div className="pp-label-input-container"><p className="pp-textarea">Created by: {user.username}</p></div>
                                     </div>
                                 </div>
                                 <div className="pp-buttons">
@@ -52,7 +120,7 @@ const CreatePlan = () => {
                                         <button className="cambridge-button">ADD SECTION +</button>
                                     </div>            
                                     <div className="save-button">
-                                        <button className="cambridge-button">SAVE</button>
+                                        <button className="cambridge-button" type="submit">SAVE</button>
                                     </div>
                                 </div>
                         </form>
