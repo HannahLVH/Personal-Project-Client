@@ -45,6 +45,7 @@ console.log("Error:", errorMessage)
                                     <th>TITLE</th>
                                     <th>DATE CREATED</th>
                                     <th>CREATED BY</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>

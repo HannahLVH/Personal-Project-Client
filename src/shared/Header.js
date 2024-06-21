@@ -57,13 +57,15 @@ const Header = ({user, setUser}) => {
                         <li className="nav-horizontal-menu"><a href="#" onClick={handleLogout}>LOGOUT</a></li>
                         </>
                         ) : (
+                        <>
+                        <li className="nav-horizontal-menu"><Link to="/signup">CREATE ACCOUNT</Link></li> 
                         <li className="nav-horizontal-menu"><Link to="/login">LOGIN</Link></li>
+                        </>
                         )}
                     </ul>
                 </div>
                 <div className="hamburger-menu">
                     <i className="fa-solid fa-bars" style={{color: "#ffffff"}}></i> 
-                    <li className="nav-horizontal-menu"><Link to="/signup">CREATE ACCOUNT</Link></li> 
                 </div>
             </nav>
         </div>
