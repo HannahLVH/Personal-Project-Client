@@ -1,7 +1,30 @@
-import React from "react";
-import userData from "../data/userData";
+import React, { useState, useEffect } from "react";
+// import studentData from "../data/studentData";
+// import {useParams} from "react-router-dom";
 
 const Roster = () => {
+    // const {studentRole} = useParams();
+
+    const [roster, setRoster] = useState([]);
+
+    useEffect (() => {
+        fetch(`http://localhost:8080/user/student-roster`, {
+        method: "GET",
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if(result.statusCode === 200)
+            {
+                // console.log(result)
+                setRoster(result.data)
+            } else {
+                throw new Error(result.error.message)
+            }
+        })
+        .catch((error) =>console.log("Error", error))
+    }, [])
+
+        
     return (
       <main>
             <div className="content-section">
@@ -17,22 +40,16 @@ const Roster = () => {
                         <thead>
                             <tr>
                                 <th>STUDENT NAME</th>
-                                <th>MANAGE STUDENT</th>
+                                {/* <th></th> */}
                             </tr>
                         </thead>
                         <tbody>
-                            {userData.map((user) => 
-                            <tr key={user.id}>
-                                <td>{user.firstName} {user.lastName}</td>
-                                <td>
-                                    <select className="manage-pp-select" name="manage-pp-options" id="manage-pp-options" defaultValue={"selected"}>
-                                        <option value="selected">Select an option:</option>
-                                        <option value="view-profile-value">View Student Profile</option>
-                                        <option value="view-plans-value">View Plans</option>
-                                        <option value="create-new-pp-value">Create New Plan</option>
-                                        <option value="remove-value">Remove Student</option>
-                                    </select>
-                                </td>
+                            {roster.map((student) => 
+                            <tr key={student._id}>
+                                <td>{student.firstName} {student.lastName}</td>
+                                {/* <td className="plans-buttons">
+                                    <button className="cambridge-button"><a href={`/profile/:userId`}>View Profile</a></button>
+                                </td> */}
                             </tr>
                             )}
                         </tbody>
