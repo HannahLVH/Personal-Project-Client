@@ -54,6 +54,7 @@ const Header = ({user, setUser}) => {
                         <>
                         <li className="nav-horizontal-menu"><Link to={`/plans/${userId}`}>MY PLANS</Link></li>
                         <li className="nav-horizontal-menu"><Link to={`/create-plan/${userId}`}>NEW PLAN</Link></li>
+                        <li className="nav-horizontal-menu"><Link to={`/student-roster`}>STUDENT ROSTER</Link></li>
                         <li className="nav-horizontal-menu"><Link to={`/profile/${userId}`}>PROFILE</Link></li>
                         <li className="nav-horizontal-menu"><a href="#" onClick={handleLogout}>LOGOUT</a></li>
                         </>

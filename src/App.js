@@ -41,6 +41,15 @@ function App() {
           <Route path="/profile/:userId" element={<Profile/>}/>
           <Route path="/edit-profile/:userId" element={<EditProfile/>}/>
           <Route path="/student-roster" element={<Roster/>}/>
+
+          {/* TEST */}
+          {/* <Route path="/plans" element={<PlanList/>} />
+          <Route path="/student" element={<StudentPlans/>} />
+          <Route path="/plan" element={<Plan/>}/>
+          <Route path="/edit-plan" element={<EditPlan/>}/>
+          <Route path="/create-plan" element={<CreatePlan/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/edit-profile" element={<EditProfile/>}/>  */}
         </Routes>
         <Footer/>
     </div>
