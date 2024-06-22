@@ -54,14 +54,15 @@
 
 .nav-menu-container {
     width: 70%;
-    margin-right: 5%;
+    /* margin-right: 5%; */
 }
 
 .nav-menu-container-2 {
     max-width: 100%;
-    min-width: 70%;
+    /* min-width: 50%; */
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-evenly;
 } 
 
 .nav-menu-list {
@@ -181,3 +182,114 @@ li:hover .profile-dropdown-styling {
     height: 3px;
     background-color: var(--Sienna-Burnt);
   }
+
+/* nav styling queries  */
+
+@media screen and (max-width: 1255px){
+    .nav-container {
+        justify-content: space-evenly;
+    }
+    
+}
+
+@media screen and (max-width: 1150px){
+    .nav-menu-list {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-section {
+        width: 100%;
+    }
+
+    /* .nav-container-2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .nav-container-2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    } */
+    
+}
+
+@media screen and (min-width: 769px) {
+
+    .nav-logo-background {
+        max-width: 100%; 
+    }
+}
+
+/* hamburger menu */
+@media screen and (max-width: 800px) {
+    
+    .nav-container {
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-logo-background {
+        min-width: 20%;
+        padding-left: 0.5em;
+    }
+
+    .nav-menu-list {
+        display: none;
+    }
+
+    .hamburger-menu {
+        margin-right: 10%;
+        position:sticky;
+        display: inline-block;
+        color: var(--Eggshell)
+    }  
+
+    .hamburger-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: var(--Blue-Cambridge); 
+        list-style: none;
+        padding: 0;
+        margin-right: 0;
+        width: 200px; 
+    }
+
+    /* .hamburger-dropdown li {
+        border-bottom: 1px solid #444; 
+    } */
+
+    .hamburger-dropdown.open {
+        display: block;
+    }
+    
+    .hamburger-dropdown li a {
+        /* display: list-item; */
+        display: block;
+        padding: 10px;
+        color: var (--Eggshell);
+        text-decoration: none;
+    }
+    
+    .hamburger-dropdown li a:active {
+        background-color: var(--Sunset);
+        /* color: var(--black); */
+        font-weight: bold; 
+    }
+    .hamburger-dropdown li a:visited {
+        color: var(--white); 
+    }
+}
+
+@media screen and (min-width:801px) {
+    .hamburger-menu {
+        display: none;
+    }  
+}

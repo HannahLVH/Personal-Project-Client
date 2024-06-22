@@ -1,54 +1,7 @@
 /* MEDIA QUERIES */
 
-/* nav styling queries  */
-
-@media screen and (max-width: 1024px) {
-    .nav-section {
-        width: 100%;
-    }
-    
-}
-
-@media screen and (min-width: 769px) {
-
-    .nav-logo-background {
-        max-width: 100%; 
-    }
-}
-
-@media screen and (max-width: 768px) {
-
-    .nav-container {
-        min-width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .nav-logo-background {
-        min-width: 20%;
-        padding-left: 0.5em;
-    }
-}
-
-@media screen and (min-width:769px) {
-    .hamburger-menu {
-        display: none;
-    }  
-}
-
-@media screen and (max-width: 768px) {
-    
-    .nav-menu-list {
-        display: none;
-    }
-
-    .hamburger-menu {
-        margin-right: 10%;
-    }  
-    
-}
-
 /* content section queries */
+
 
 @media screen and (max-width: 769px) {
 
