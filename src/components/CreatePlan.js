@@ -5,9 +5,9 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const CreatePlan = () => {
     const navigate = useNavigate();
-    const [user, setUser] = useState({username: ""})
+    const [user, setUser] = useState({})
     const {userId} = useParams();
-    const {planId} = useParams();
+    // const {planId} = useParams();
     const [students, setStudents] = useState([]);
     const [createPlan, setCreatePlan] = useState({
         createdBy: userId, 
@@ -16,6 +16,7 @@ const CreatePlan = () => {
         activity: "",
         practiceNotes: ""
     });
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         fetch(`http://localhost:8080/user/profile/${userId}`)
@@ -38,13 +39,13 @@ const CreatePlan = () => {
         .then((result) => {
             if(result.statusCode === 200)
             {
-                // console.log(result)
+                console.log(result)
                 setStudents(result.data)
             } else {
                 throw new Error(result.error.message)
             }
         })
-        .catch((error) =>console.log("Error", error))
+        .catch((error) => console.log("Error", error))
     }, [])
 
     const handleInputChange = (e) => {
@@ -56,8 +57,8 @@ const CreatePlan = () => {
         e.preventDefault();
         console.log("Method running successfully", createPlan)
         const body = {
-            createdBy: createPlan.createdBy,
-            assignedTo: createPlan.assignedTo,
+            createdBy: userId,
+            assignedTo: e.target.assignedTo.value,
             title: e.target.title.value,
             activity: e.target.activity.value,
             practiceNotes: e.target.practiceNotes.value,    
@@ -65,8 +66,7 @@ const CreatePlan = () => {
 
         console.log(body);
         
-        fetch(`http://localhost:8080/user/${userId}/create-plan`,
-        {
+        fetch(`http://localhost:8080/user/create-plan/${userId}`, {
             method: "POST",
             headers: {"Content-Type": "application/json",},
             body: JSON.stringify(body),
@@ -76,12 +76,13 @@ const CreatePlan = () => {
             if(result.statusCode === 200) {
                 console.log("Success! The practice plan was created successfully", result)
                 setCreatePlan(result.data)
-                navigate(`/plan/${planId}`)
+                console.log(result.data._id)
+                navigate(`/plan/${result.data._id}`)
             } else {
                 throw new Error (result.error.message)
             }
         })
-        .catch((error) => console.log("Error", error));
+        .catch((error) => setErrorMessage("Error", error, errorMessage))
     }
 
     console.log(createPlan)
@@ -111,6 +112,17 @@ const CreatePlan = () => {
                                         <div className="pp-label-input-container">
                                             <label className="pp-tools" htmlFor="practiceNotes">Practice Notes:</label>
                                             <textarea className="pp-textarea" id="practiceNotes" name="practiceNotes" placeholder="What should be the focus of this activity?" value={createPlan.practiceNotes} onChange={handleInputChange} required></textarea>
+                                        </div>
+                                        <div className="pp-label-input-container">
+                                            <label className="pp-tools" htmlFor="assignedTo">Assign to:</label>
+                                          
+                                            <select className="pp-textarea" id="assignedTo" name="assignedTo" placeholder="What should be the focus of this activity?" defaultValue="select" onChange={handleInputChange} required>
+                                                <option value="select" disabled>Select Student:</option>
+                                            {students.map((student)=>
+                                                <option key={student._id} value={student._id}>{student.firstName} {student.lastName}</option>
+                                                )}
+                                            </select>
+                                            
                                         </div>  
                                         <div className="pp-label-input-container"><p className="pp-textarea">Created by: {user.username}</p></div>
                                     </div>

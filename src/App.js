@@ -37,7 +37,7 @@ function App() {
           <Route path="/student/:userId" element={<StudentPlans/>} />
           <Route path="/plan/:planId" element={<Plan/>}/>
           <Route path="/edit-plan/:planId" element={<EditPlan/>}/>
-          <Route path="/:userId/create-plan" element={<CreatePlan/>}/>
+          <Route path="/create-plan/:userId" element={<CreatePlan/>}/>
           <Route path="/profile/:userId" element={<Profile/>}/>
           <Route path="/edit-profile/:userId" element={<EditProfile/>}/>
           <Route path="/student-roster" element={<Roster/>}/>

@@ -50,7 +50,7 @@ console.log("Error:", errorMessage)
                             </thead>
                             <tbody>
                                 {plans.map((plan) =>
-                                <tr key={plan.id}>
+                                <tr key={plan._id}>
                                     <td>{plan.title}</td>
                                     <td>{plan.createdOn}</td>
                                     <td>{plan.createdBy.username}</td>
