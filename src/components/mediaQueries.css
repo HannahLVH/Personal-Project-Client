@@ -1,0 +1,473 @@
+/* MEDIA QUERIES */
+
+/* nav styling queries  */
+
+@media screen and (max-width: 1024px) {
+    .nav-section {
+        width: 100%;
+    }
+    
+}
+
+@media screen and (min-width: 769px) {
+
+    .nav-logo-background {
+        max-width: 100%; 
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav-container {
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-logo-background {
+        min-width: 20%;
+        padding-left: 0.5em;
+    }
+}
+
+@media screen and (min-width:769px) {
+    .hamburger-menu {
+        display: none;
+    }  
+}
+
+@media screen and (max-width: 768px) {
+    
+    .nav-menu-list {
+        display: none;
+    }
+
+    .hamburger-menu {
+        margin-right: 10%;
+    }  
+    
+}
+
+/* content section queries */
+
+@media screen and (max-width: 769px) {
+
+    .text-container-1 {
+        margin: auto;
+        margin-top: 0.5em;
+        width: 80%;
+        padding: 0.4em;
+        align-self: center;
+    }
+
+    .text-container-1 h1 {
+        margin-top: 0.5em;
+        margin-bottom: 0.2em;
+    }
+
+    .text-container-1 p {
+        text-align: center;
+    }
+
+    .text-container-2 {
+        width: 90%;
+        background-color: var(--Light-Blue-Cambridge);
+        border: 0.5em solid var(--Light-Blue-Cambridge);
+        border-radius: 50%;
+        padding-top: 3em;
+        padding-left: 1em;
+        padding-right: 1em;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .features-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .planner-sample {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .planner-sample h3 {
+        padding: 0;
+    }
+
+    .feature-example-img {
+        width: 80%;
+        align-self: center;
+        border-radius: 10px;
+    }
+    
+}
+
+/* create account page styling */
+
+@media screen and (max-width: 769px) {
+.create-account-buttons {
+    flex-direction: column;
+}
+
+.create-account-buttons button {
+    margin-bottom: 1.5em;
+}
+
+}
+
+/* account settings page styling */
+
+@media screen and (min-width: 340px) and (max-width: 1023px) {
+
+.table-container {
+    margin-bottom: 2em;
+}
+
+.table-wrapper {
+    max-width: auto;
+    display: flex;
+    overflow-x: auto;
+}
+
+}
+
+/* profile form styling */
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+.profile-pic-section-container {
+    width: 100%;
+    margin: auto;
+    display: flex;   
+    flex-direction: column; 
+    margin-bottom: 1.5em;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile-pic-section-container label {
+    padding-bottom: 0.2em;
+}
+
+.profile-form-section {
+    width: 100%;
+    margin: auto;
+    display: flex;   
+    flex-direction: column; 
+    margin-bottom: 1.5em;
+    justify-content: center;
+    
+}
+
+.profile-form-section label {
+    padding-bottom: 0.2em;
+}
+
+.profile-form-section input {
+    width: 22em;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.profile-form-section textarea {
+    width: 22em;
+    height: 10em;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* .save-button {
+    margin: auto;
+} */
+
+.profile-form-section button {
+    margin-left: 0;
+}
+}
+
+@media screen and (max-width: 768px) {
+
+.profile-pic-section-container {
+    width: 100%;
+    margin: auto;
+    display: flex;   
+    flex-direction: column; 
+    margin-bottom: 1.5em;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-pic-section-container label {
+    padding-bottom: 0.2em; 
+}
+
+.profile-pic-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-form-section {
+    width: 100%;
+    margin: auto;
+    display: flex;   
+    flex-direction: column; 
+    margin-bottom: 1.5em;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-form-section label {
+    text-align: center;
+    padding-bottom: 0.2em;
+}
+
+.profile-form-section input {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+.profile-form-section textarea {
+    width: 100%;
+    height: 10em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+.profile-form-section button {
+    margin-left: 0;
+}
+}
+
+/* new pp form styling */
+
+@media screen and (max-width: 769px) {
+
+.pp-section {
+    margin-top: 1em;
+}
+
+.new-pp-form-container {
+    width: 100%;
+    margin: 0.2em;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Josefin Slab', sans-serif;
+}
+
+.new-pp-form-container {
+    width: 100%;
+    margin: 0;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+
+.pp-label-input-container {
+    margin: 0;
+    
+}
+
+.pp-section {
+    display: flex;    
+    flex-direction: column;
+}
+
+.pp-textarea {
+    box-sizing: border-box;
+    width: 100%;
+    align-self: center;
+    min-width: 1em;
+    max-width: 90%;
+    min-height: 1em;
+    /* flex-basis: 10em; */
+    margin-top: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.5em;
+    line-height: 1.2em;
+}
+
+.pp-form-label-input-container {
+    margin: 0;
+    
+}
+
+.pp-form-section {
+    display: flex;    
+    flex-direction: column;
+}
+
+.pp-form-textarea {
+    box-sizing: border-box;
+    width: 100%;
+    align-self: center;
+    min-width: 1em;
+    max-width: 90%;
+    min-height: 10em;
+    flex-basis: 10em;
+    margin-top: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.5em;
+}
+.pp-buttons {
+    margin-top: 0;
+    margin-bottom: 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pp-buttons button {
+    margin-bottom: 2em;
+}
+
+} 
+
+/* form styling */
+
+@media screen and (max-width: 769px) {
+
+.form-container {
+    max-width: 100%;
+    margin: 1.5em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+
+.label-input-container {
+    flex-direction: column;
+}
+
+.form-fields label {
+    margin: auto;
+    text-align: center;
+    
+}
+
+
+.form-fields input,
+.form-fields select {
+box-sizing: border-box;
+flex-grow: 2;
+width: 60vw;
+min-width: 1em;
+max-width: 20em;
+flex-basis: 1em; 
+padding: 0.5em;
+margin: 0;
+}
+
+
+.form-fields input[type=username],
+.form-fields input[type=password],
+.form-fields select{
+    flex-shrink: 2;
+
+}
+}
+
+/* update & create form */
+
+@media screen and (max-width: 768px) {
+.form-fields input[type="title"],
+.form-fields input[type="author"],
+.form-fields input[type="genre"],
+.form-fields input[type="genre"],
+.form-fields input[type="number-pages"],
+.form-fields input[type="rating"], 
+.form-fields select {
+    /* margin-right: 3.4em; */
+    flex-shrink: 2;
+}
+}
+
+/* footer media queries */
+
+@media screen and (max-width: 767px) {
+
+    .footer-container {
+        max-width: 100vw;
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-menu {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        max-width: 10em;
+        text-align: center;
+    }
+
+    .footer-menu >div {
+        margin-bottom: 0.5em;
+    }
+
+    .footer-socials {
+        width: 100%;
+        align-self: center;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .fa-brands {
+        font-size: 2em;
+    }
+
+    .footer-hannah-lovez-logo {
+        max-width: 5em;
+        min-width: 2em;
+        position: relative;
+        left: 0;
+    }
+    
+}
+
+@media screen and (min-width: 769px) {
+
+    .footer-container {
+        width: 100%;
+    }
+
+    .footer-menu {
+        width: 100%;
+    }
+
+    .footer-hannah-lovez-logo {
+        width: 1em; 
+        align-self: center;
+    }
+
+    .footer-hannah-lovez-logo {
+        max-width: 60%;
+        min-width: 60%;
+    } 
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .footer-hannah-lovez-logo {
+        max-width: 5em;
+        min-width: 2em;
+        position: relative;
+        left: 0;
+    }
+
+}

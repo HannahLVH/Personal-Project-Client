@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,548 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+
+:root {
+  --Eggshell: #F4F1DE;
+  --Sienna-Burnt: #5a9c82;
+  --Blue-Delft: #415b63;
+  --Blue-Cambridge: #81B29A;
+  --Light-Blue-Cambridge: #a4c7b5;
+  --Sunset: #eddfca;
+  --white: #FFFFFF;
+  --black: #000000;
 }
+
+body {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: var(--Sunset);
+  font-size: 1.5rem;
+} 
+
+body h1, h2, h3, h4 {
+  font-family: 'Caveat', sans-serif;
+}
+
+body p {
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+body tr {
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+body button {
+  background-color: var(--Light-Blue-Cambridge);
+}
+
+body button:hover {
+  background-color: var(--white);
+}
+
+body button:active {
+  background-color: var(--Blue-Delft);
+  color: var(--Light-Blue-Cambridge);
+
+}
+
+/* content section styling */
+
+.content-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+.text-container-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 70%;
+  background-color: var(--Eggshell);
+  padding: 5%;
+  border: 8px solid var(--blue);
+  border-radius: 20px;
+}
+
+.text-container-1 h1, h2, p {
+  text-align: center;
+}
+
+
+
+.text-container-1 p {
+  text-align: justify;
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+
+.features-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.text-container-2 {
+  width: 40%;
+  background-color: var(--Light-Blue-Cambridge);
+  border: 0.5em solid var(--Light-Blue-Cambridge);
+  border-radius: 50%;
+  margin-top: 1em;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+}
+
+.text-container-2 h2, ul {
+  margin: 0;
+}
+
+.text-container-2 p {
+  text-align: center;   
+}
+
+.planner-sample {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.planner-sample h3 {
+  margin-top: 2em;
+  margin-bottom: 0.em;
+  padding-right: 50%;
+}
+
+.feature-example-img {
+  width: 70%;
+  border-radius: 10px;
+}
+
+.content-header {
+  overflow-wrap: break-word;
+} 
+
+.collection-details-list {
+  display: flex;
+  justify-content: center;
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+/* create account page styling */
+
+.create-account-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 1.5em;
+}
+
+.create-account-buttons button {
+  padding: 1em;
+  border-radius: 5em;
+}
+
+/* account settings page styling */
+
+.account-settings-menu {
+  width: 50%;
+  margin: auto;
+
+}
+
+.account-settings-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 100%;
+}
+
+.account-settings-buttons button {
+  padding: 1em;
+  border-radius: 5em;
+  margin-bottom: 1.5em;
+
+}
+
+/* pp list and student roster page styling */
+
+.table-header { 
+  text-align: center;
+}
+
+.manage-table {
+  border: 5px solid var(--Light-Blue-Cambridge);
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 0.5em;
+  border-collapse: collapse;
+  width: 80%;
+  min-width: 10%;
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+
+.manage-table th {
+  border: 3px solid var(--Light-Blue-Cambridge);
+  background-color: var(--Light-Blue-Cambridge);
+  padding: 0.4em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.manage-table td {
+  border: 3px solid var(--white);
+  padding: 0.2em;
+  text-align: center;
+}
+
+.manage-pp-select {
+  padding: 0.2em;
+  border-radius: 0.3em;
+}
+
+/* profile form styling */
+
+.profile-form-container {
+  width: 80%;
+  margin: auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+.profile-form-fields {
+  width: 100%;
+}
+
+.profile-form-section {
+  width: 100%;
+  margin: auto;
+  display: flex;   
+  flex-direction: column; 
+  margin-bottom: 1.5em;
+  justify-content: space-around;
+}
+
+.profile-form-section label {
+  text-align: center;
+  padding-bottom: 0.2em;
+}
+
+.profile-pic-section-container {
+  width: 100%;
+  margin: auto;
+  display: flex;   
+  flex-direction: row; 
+  margin-bottom: 1.5em;
+  justify-content: space-between;
+}
+
+.profile-pic-section-container label {
+  width: 6em;
+  min-width: 6em;
+}
+
+.profile-form-section label {
+  width: 6em;
+  min-width: 6em;
+}
+
+.profile-form-section input {
+  width: 20em;
+  min-width: 9em;
+  padding: 0.5em;
+}
+
+.profile-form-section textarea {
+  width: 20em;
+  min-width: 9em;
+  height: 10em;
+  padding: 0.5em;
+  
+}
+
+.profile-form-section >span {
+  line-height: 1.5em;
+  text-align: center;
+}
+
+.profile-pic-section {
+  width: 65%;
+  display: flex;
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+.profile-pic-thumbnail-container {
+  width: 6em;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.profile-pic-thumbnail {
+  margin: auto;
+  width: 6em;
+  min-width: 5em;
+  height: 6em;
+  border: solid 2px var(--black);
+  background-color: var(--white);
+}
+
+.profile-pic-input-container {
+  padding-left: 4em;
+
+}
+
+.profile-form-section {
+  /* width: 100%;
+  margin: auto;
+  display: flex;   
+  flex-direction: column; 
+  margin-bottom: 1.5em;
+  justify-content: center; */
+  align-items: center;
+}
+
+.profile-form-section button {
+  padding: 0.5em;
+  border-radius: 5em;
+  /* margin-left: 1em; */
+}
+
+.profile-label {
+  font-weight: bold;
+}
+
+/* new pp form styling */
+
+.new-pp-form-container {
+  width: 100%;
+  margin: auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+.new-pp-form-fields {
+  width: 100%;
+}
+
+.pp-section {
+  width: 100%;
+  /* display: flex;   
+  flex-direction: column;  */
+  margin-bottom: 1.5em;
+  align-items: center;
+}
+
+.pp-label-input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em;
+  align-items: left;
+}
+
+.pp-textarea {
+  width: 90%;
+  min-width: 1em;
+  /* max-width: 50em;*/
+  min-height: 1em; 
+  /* max-height: 10em;  */
+  margin: 0.5em;
+  padding: 0.5em;
+  line-height: 1.2em;
+}
+
+.pp-form-section {
+  width: 100%;
+  display: flex;   
+  flex-direction: row; 
+  margin-bottom: 1.5em;
+  align-items: center;
+}
+
+.pp-form-label-input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em;
+  align-items: left;
+}
+
+.pp-form-textarea {
+  width: 100%;
+  min-width: 1em;
+  max-width: 50em;
+  min-height: 10em;
+  max-height: 10em;
+  margin: 0.5em;
+  padding: 0.5em;
+} 
+
+.pp-tools, .pp-notes  {
+  padding-left: 0.5em;
+}
+
+.pp-tools {
+  font-weight: bold;
+}
+
+
+.pp-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.plans-buttons button {
+  border-radius: 2em;
+}
+
+.plans-buttons button {
+  background-color: var(--Light-Blue-Cambridge);
+}
+
+.plans-buttons button:hover {
+  background-color: var(--white);
+}
+
+.plans-buttons button:active {
+  background-color: var(--Blue-Delft);
+  color: var(--Light-Blue-Cambridge);
+
+}
+
+.plans-buttons a:link {
+  color: var(--black);
+  text-decoration: none;
+}
+.plans-buttons a:visited {
+  color: var(--black);
+}
+
+.plans-buttons a:active {
+  color: var(--Light-Blue-Cambridge);
+}
+
+
+.pp-buttons button {
+  padding: 1em;
+  border-radius: 5em;
+}
+
+/* form styling */
+
+.form-container {
+  width: 90%;
+  margin: 0.2em;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Josefin Slab', sans-serif;
+}
+
+
+.enter-button button {
+  padding: 1em;
+  border-radius: 5em;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.enter-button {
+  align-self: center;
+}
+
+.form-fields >span {
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+}
+
+/* login and sign-up form */
+
+.form-fields input {
+  box-sizing: border-box;
+  flex-grow: 2;
+  width: 50vw;
+  min-width: 1em;
+  max-width: 20em;
+  flex-basis: 100em; 
+  padding:0.5em;
+  margin-top: 0.5em;
+  margin-left: 0.2em;
+}
+
+.form-fields select {
+  box-sizing: border-box;
+  flex-grow: 2;
+  width: 50vw;
+  min-width: 1em;
+  max-width: 20em;
+  flex-basis: 100em; 
+  padding:0.5em;
+  margin-top: 0.5em;
+  margin-left: 0.em;
+}
+
+.form-fields label {
+  flex-grow: 2;
+  flex-basis: 100%;
+  text-align: right;
+  margin: auto;
+}
+
+/* update & create form */
+.form-fields input[type="title"],
+.form-fields input[type="author"],
+.form-fields input[type="genre"],
+.form-fields input[type="genre"],
+.form-fields input[type="number-pages"],
+.form-fields input[type="rating"],
+.form-fields select {
+  box-sizing: border-box;
+  flex-grow: 2;
+  width: 50vw;
+  min-width: 1em;
+  max-width: 20em;
+  flex-basis: 100em;
+  padding: 5px;
+  /* margin-right: 1.5em; */
+}
+
+
+ 
