@@ -12,6 +12,7 @@ const CreateAccount = () => {
         username: "",
         password: ""
     });
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -20,8 +21,7 @@ const CreateAccount = () => {
 
     const handleSignUpSubmit = (e) => {
         e.preventDefault();
-        console.log("Method running successfully")
-        console.log(signUp)
+        console.log("Method running successfully", signUp)
         const body = {
             firstName: e.target.firstName.value,
             lastName: e.target.lastName.value,
@@ -38,13 +38,15 @@ const CreateAccount = () => {
         .then((result) => {
             if(result.statusCode === 200) {
                 localStorage.setItem("user", JSON.stringify(result.data));
+                setSignUp(result.data)
                 console.log("Success! You are signed up");
                 navigate("/")
             } else {
+                // navigate("/")
                 throw new Error (result.error.message)
             }
         })
-        .catch((error) => console.log("Error", error));
+        .catch((error) => setErrorMessage("Error", error, errorMessage));
     }
 
     return (
@@ -103,7 +105,7 @@ const CreateAccount = () => {
                         </span>
                         <span className="enter-button">
                             <br/>
-                            <button className="submit-button yellow-button">Submit</button>
+                            <button className="submit-button yellow-button" type="submit">Submit</button>
                         </span>
                    </div>
                 </form>
