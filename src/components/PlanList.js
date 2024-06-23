@@ -23,10 +23,10 @@ const PlanList = () => {
                 throw new Error(result.error.message)
             }
         })
-        .catch((error) => setErrorMessage("Error", error))
-}, [userId])
+        .catch((error) => setErrorMessage("Error", error, errorMessage))
+}, [userId, errorMessage])
 
-console.log("Error:", errorMessage)
+// console.log("Error:", errorMessage)
 
     return (
       <main>
