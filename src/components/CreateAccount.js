@@ -29,6 +29,9 @@ const CreateAccount = () => {
             username: e.target.username.value,
             password: e.target.password.value
         }
+
+        console.log(body);
+
         fetch("http://localhost:8080/signup", {
             method: "POST",
             headers: {"Content-Type": "application/json",},
@@ -39,10 +42,9 @@ const CreateAccount = () => {
             if(result.statusCode === 200) {
                 localStorage.setItem("user", JSON.stringify(result.data));
                 setSignUp(result.data)
-                console.log("Success! You are signed up");
-                navigate("/")
+                console.log("Success! You are signed up", result.data);
+                navigate(`/profile/${result.data._id}`);
             } else {
-                // navigate("/")
                 throw new Error (result.error.message)
             }
         })
