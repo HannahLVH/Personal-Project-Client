@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../components/mediaQueries.css";
 
 
-const CreateAccount = () => {
+const CreateAccount = ({setUser}) => {
     const navigate = useNavigate();
     const [signUp, setSignUp] = useState({
         firstName: "",
@@ -42,6 +42,7 @@ const CreateAccount = () => {
             if(result.statusCode === 200) {
                 localStorage.setItem("user", JSON.stringify(result.data));
                 setSignUp(result.data)
+                setUser(result.data)
                 console.log("Success! You are signed up", result.data);
                 navigate(`/profile/${result.data._id}`);
             } else {

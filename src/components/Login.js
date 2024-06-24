@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({setUser}) => {
     const navigate = useNavigate();
     const [login, setLogin] = useState({
         username: "",
@@ -27,10 +27,12 @@ const Login = () => {
         })
         .then((response) => response.json())
         .then((result) => {
+            console.log("Result", result)
             if(result.statusCode === 200) {
+                setUser(result.data)
                 localStorage.setItem("user", JSON.stringify(result.data));
-                console.log("Success! You are logged in");
-                navigate("/")
+                console.log("Success! You are logged in", result);
+                navigate(`/profile/${result.data._id}`)
             } else {
                 throw new Error (result.error.message)
             }
