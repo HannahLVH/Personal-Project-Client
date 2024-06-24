@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import {useNavigate, Link} from "react-router-dom";
-import userData from "../data/userData";
+// import userData from "../data/userData";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import "./Header.css"
@@ -10,13 +10,13 @@ import "../components/mediaQueries.css"
 
 const Header = ({user, setUser}) => {
   const navigate = useNavigate();
-  const userId = "6648dba36cf94ff0c2d6ee85";
+//   const user._id = "6648dba36cf94ff0c2d6ee85";
   const [dropdown, setDropdown] = useState(false);
 
-    useEffect(() => {
-        const findUser = userData.find((user) => user._id === userId);
-        setUser(findUser);
-    }, [setUser]);
+    // useEffect(() => {
+    //     const findUser = userData.find((user) => user._id === user._id);
+    //     setUser(findUser);
+    // }, [setUser]);
 
   
 
@@ -57,12 +57,12 @@ const toggleDropdown = () => {
                     <ul className="nav-menu-list nav-link-styling">
                         <li className="nav-horizontal-menu"><Link to="/">HOME</Link></li>
                         
-                        {user.username ? (
+                        {user?.username ? (
                         <>
-                        <li className="nav-horizontal-menu"><Link to={`/plans/${userId}`}>MY PLANS</Link></li>
-                        <li className="nav-horizontal-menu"><Link to={`/create-plan/${userId}`}>NEW PLAN</Link></li>
+                        <li className="nav-horizontal-menu"><Link to={`/plans/${user._id}`}>MY PLANS</Link></li>
+                        <li className="nav-horizontal-menu"><Link to={`/create-plan/${user._id}`}>NEW PLAN</Link></li>
                         <li className="nav-horizontal-menu"><Link to={`/student-roster`}>STUDENT ROSTER</Link></li>
-                        <li className="nav-horizontal-menu"><Link to={`/profile/${userId}`}>PROFILE</Link></li>
+                        <li className="nav-horizontal-menu"><Link to={`/profile/${user._id}`}>PROFILE</Link></li>
                         <li className="nav-horizontal-menu"><Link to="/" onClick={handleLogout}>LOGOUT</Link></li>
                         </>
                         ) : (
@@ -79,12 +79,12 @@ const toggleDropdown = () => {
                 {dropdown && (
                 <ul className={`hamburger-dropdown ${dropdown ? 'open' : ''}`}>
                      <li><Link to="/">HOME</Link></li>
-                        {user.username ? (
+                        {user?.username ? (
                             <>
-                                <li><Link to={`/plans/${userId}`}>MY PLANS</Link></li>
-                                <li><Link to={`/create-plan/${userId}`}>NEW PLAN</Link></li>
+                                <li><Link to={`/plans/${user._id}`}>MY PLANS</Link></li>
+                                <li><Link to={`/create-plan/${user._id}`}>NEW PLAN</Link></li>
                                 <li><Link to={`/student-roster`}>STUDENT ROSTER</Link></li>
-                                <li><Link to={`/profile/${userId}`}>PROFILE</Link></li>
+                                <li><Link to={`/profile/${user._id}`}>PROFILE</Link></li>
                                 <li><Link to="/" onClick={handleLogout}>LOGOUT</Link></li>
                             </>
                         ) : (

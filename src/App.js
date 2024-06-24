@@ -17,11 +17,20 @@ import Footer from "./shared/Footer"
 
 
 function App() {
-  const [user, setUser] = useState(localStorage.getItem("user") || {})
+  // const [user, setUser] = useState(localStorage.getItem("user") || {})
 
-  useEffect (() => {
-    localStorage.getItem("user")
-  }, [user])
+  // useEffect (() => {
+  //   localStorage.getItem("user")
+  // }, [user])
+
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const storedUser = (localStorage.getItem("user"));
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <div className="App">
@@ -30,8 +39,8 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<Index/>}/>
-          <Route path="/signup" element={<CreateAccount/>} user={user} setUser={setUser}/>
-          <Route path="/login" element={<Login/>} user={user} setUser={setUser}/>
+          <Route path="/signup" element={<CreateAccount user={user} setUser={setUser}/>}/>
+          <Route path="/login" element={<Login user={user} setUser={setUser}/>}/>
           <Route path="/account-settings" element={<AccountSettings/>}/>
           <Route path="/plans/:userId" element={<PlanList/>} />
           <Route path="/student/:userId" element={<StudentPlans/>} />
@@ -43,13 +52,13 @@ function App() {
           <Route path="/student-roster" element={<Roster/>}/>
 
           {/* TEST */}
-          <Route path="/plans" element={<PlanList/>} />
+          {/* <Route path="/plans" element={<PlanList/>} />
           <Route path="/student" element={<StudentPlans/>} />
           <Route path="/plan" element={<Plan/>}/>
           <Route path="/edit-plan" element={<EditPlan/>}/>
           <Route path="/create-plan" element={<CreatePlan/>}/>
           <Route path="/profile" element={<Profile/>}/>
-          <Route path="/edit-profile" element={<EditProfile/>}/> 
+          <Route path="/edit-profile" element={<EditProfile/>}/>  */}
         </Routes>
         <Footer/>
     </div>
