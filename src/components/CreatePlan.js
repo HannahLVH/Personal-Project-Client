@@ -128,9 +128,9 @@ const CreatePlan = () => {
                                     </div>
                                 </div>
                                 <div className="pp-buttons">
-                                    <div className="add-section-button">
+                                    {/* <div className="add-section-button">
                                         <button className="cambridge-button">ADD SECTION +</button>
-                                    </div>            
+                                    </div>             */}
                                     <div className="save-button">
                                         <button className="cambridge-button" type="submit">SAVE</button>
                                     </div>
