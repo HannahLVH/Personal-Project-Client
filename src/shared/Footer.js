@@ -30,6 +30,8 @@ const Footer = () => {
                             <a href="#" target="_blank" rel="noopener noreferrer"><img src="/images/Hannah-Lovez-logo.png" alt="hannah lovez violin logo: a stamp of a violin inside a circle" className="footer-hannah-lovez-logo" style={{width: "180px"}}/></a>
                         </div>       
                     </div>
+                    <br/>
+                    <div className="contact"><span>Contact: hannahlopez.violin@gmail.com </span></div>
                 </footer>
             </div>
         </div>

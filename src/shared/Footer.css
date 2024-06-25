@@ -58,6 +58,18 @@
     
 }
 
+.contact span {
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+    overflow-wrap: break-word;
+    
+}
+
+.contact {
+    overflow-wrap: break-word;
+}
+
 .footer-socials {
     display: flex;
     justify-content: space-between;
@@ -83,7 +95,7 @@
     text-decoration: none;
     color: var(--white);
     border-radius: 2em;
-    padding: 0.2em;
+    padding: 5%;
 }
 
 .footer-link-styling a:visited {
